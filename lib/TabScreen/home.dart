@@ -42,7 +42,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: h*0.22,),
             SearchBar(),
-            ProgressIndecetor()
+            Padding(
+              padding:  EdgeInsets.only(top:h*0.01),
+              child: ProgressIndecetor(),
+            )
+
 
           ],
         ),

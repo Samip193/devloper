@@ -93,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
             MaterialButton(
               elevation: 6,
                 onPressed: (){
-                Navigator.pushNamed(context, '/home');
+                Navigator.pushNamed(context, '/tab');
                 },
               color: MyColor.btnColor,
               shape:RoundedRectangleBorder(

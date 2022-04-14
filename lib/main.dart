@@ -1,3 +1,4 @@
+import 'package:devloper/screen/tabscreen.dart';
 import 'package:flutter/material.dart';
 
 import 'TabScreen/home.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const LoginScreen(),
+        '/tab': (context) => const TabScreen(),
         '/home': (context) => const HomeScreen(),
       },
     );
