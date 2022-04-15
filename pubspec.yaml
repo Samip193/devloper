@@ -74,6 +74,7 @@ flutter:
     - images/active_acccount.png
     - images/team.png
     - Images/minus.png
+    - Images/info.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

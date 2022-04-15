@@ -12,7 +12,7 @@ class ProgressCard extends StatelessWidget {
     double w=MediaQuery.of(context).size.width;
     bool H =h<700;
     return Container(
-      height: h*0.29,
+      height: h*0.35,
       width: w*0.90,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -52,34 +52,12 @@ class ProgressCard extends StatelessWidget {
                 )
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Veggi 365',style: TextStyle(fontSize: h*0.028,color: MyColor.txtColor,fontFamily: 'poppins_medium')),
-                ConstrainedBox(
-                    constraints: BoxConstraints(
-                        maxWidth: w*0.22
-                    ),
-                    child:Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: h*0.04,
-                          width: w*0.004,
-                          color: MyColor.gray,
-                        ),
-                        Padding(
-                          padding:  EdgeInsets.only(right: w*0.01),
-                          child: Text('1.5 L',style: TextStyle(fontSize: h*0.028,color: MyColor.txtColor,fontFamily: 'poppins_medium')),
-                        )
-                      ],
-                    )
-                )
-              ],
-            ),
-            linearPercentIndicatir(progress: 'Payment Progress',percentage: '80%',percent: 0.8),
-            linearPercentIndicatir(progress: 'Current profit Progress: -70 K',percentage: '-40%',percent: 0.4,indicator_clr: MyColor.red),
-            linearPercentIndicatir(progress: 'Total profit: 4.5 K',percentage: '50%',percent: 0.5),
+            SizedBox(height: h*0.005,),
+            linearPercentIndicatir(progress: 'Work Progress',percentage: '80%',percent: 0.8),
+            linearPercentIndicatir(progress: 'Payment Progress',percentage: '40%',percent: 0.4,),
+            linearPercentIndicatir(progress: 'Developer 1',percentage: '40%',percent: 0.4),
+            linearPercentIndicatir(progress: 'Developer 2',percentage: '40%',percent: 0.4),
+            linearPercentIndicatir(progress: 'Developer 3',percentage: '40%',percent: 0.4),
           ],
         ),
       ),

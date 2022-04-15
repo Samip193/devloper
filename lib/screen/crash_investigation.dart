@@ -12,12 +12,8 @@ class CrashInvestigation extends StatefulWidget {
 }
 
 class _CrashInvestigationState extends State<CrashInvestigation> {
-  final GlobalKey<ScaffoldState> _scaffoldState = GlobalKey<ScaffoldState>();
 
-  void tmpFunction() {
-    _scaffoldState.currentState?.openDrawer();
-    print('Function Called.....');
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +21,7 @@ class _CrashInvestigationState extends State<CrashInvestigation> {
     double w=MediaQuery.of(context).size.width;
     bool H =h<700;
     return Scaffold(
-      key: _scaffoldState,
-      drawer: Drawer(),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -69,10 +64,10 @@ class _CrashInvestigationState extends State<CrashInvestigation> {
       ),
       body: Column(
         children: [
-          TopBar(title: 'TST Admin Panel',onTouch: tmpFunction,showMenu: true),
+          InfoBar(title: 'TST Admin Panel'),
           SizedBox(height: h*0.03,),
           ConstrainedBox(
-              constraints: BoxConstraints.tightFor(height: h*0.32,width: w),
+              constraints: BoxConstraints.tightFor(height: h*0.31,width: w),
             child:Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
