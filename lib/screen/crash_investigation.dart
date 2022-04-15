@@ -45,8 +45,26 @@ class _CrashInvestigationState extends State<CrashInvestigation> {
                   offset: Offset(0,3)
                )]
            ),
-           child: Icon(Icons.add,color: MyColor.White,),
+           child: Center(child: Image.asset('Images/minus.png',color: MyColor.White,scale: 1,)),
+
          ),
+          SizedBox(height: h*0.01,),
+          Container(
+            height: h*0.047,
+            width: w*0.1,
+            decoration: BoxDecoration(
+                color: MyColor.txtGreen,
+                shape: BoxShape.circle,
+                border: Border.all(color: MyColor.White,width: w*0.006),
+                boxShadow: [BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 2,
+                    spreadRadius: 1,
+                    offset: Offset(0,3)
+                )]
+            ),
+            child: Icon(Icons.add,color: MyColor.White,),
+          ),
         ],
       ),
       body: Column(
