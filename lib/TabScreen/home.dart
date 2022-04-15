@@ -11,19 +11,24 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldState = GlobalKey<ScaffoldState>();
+  void tmpFunction() {
+    _scaffoldState.currentState?.openDrawer();
+    print('Function Called.....');
+  }
   @override
   Widget build(BuildContext context) {
     double h=MediaQuery.of(context).size.height;
     double w=MediaQuery.of(context).size.width;
     bool H =h<700;
     return Scaffold(
-
+      key: _scaffoldState,
       drawer: Drawer(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-           TopBar(title: 'TST Admin Panel',),
+           TopBar(title: 'TST Admin Panel',onTouch: tmpFunction,showMenu: true),
             Stack(
               clipBehavior: Clip.none,
               children: [

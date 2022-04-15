@@ -1,3 +1,4 @@
+import 'package:devloper/screen/crash_investigation.dart';
 import 'package:devloper/screen/tabscreen.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const LoginScreen(),
         '/tab': (context) => const TabScreen(),
         '/home': (context) => const HomeScreen(),
+        '/cration': (context) => const CrashInvestigation(),
       },
     );
   }

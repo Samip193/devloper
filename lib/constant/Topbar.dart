@@ -3,14 +3,25 @@ import 'package:flutter/material.dart';
 import 'mycolor.dart';
 
 class TopBar extends StatefulWidget {
+  TopBar({this.title,this.onTouch, required this.showMenu}) ;
+
   String? title;
-   TopBar({this.title}) ;
+  final VoidCallback? onTouch;
+  final bool showMenu;
 
   @override
   State<TopBar> createState() => _TopBarState();
 }
 
 class _TopBarState extends State<TopBar> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      showMenu;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double h=MediaQuery.of(context).size.height;
@@ -25,7 +36,16 @@ class _TopBarState extends State<TopBar> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.asset("images/menu.png",scale: 1.3,),
+            showMenu==true ?
+            GestureDetector(
+                onTap: (){
+                  Navigator.pop(context);
+                },
+                child: Icon(Icons.arrow_back,color: MyColor.White,)
+            ) : GestureDetector(
+                onTap: widget.onTouch,
+                child: Image.asset("images/menu.png",scale: 1.3,)
+            ),
             Padding(
               padding:  EdgeInsets.only(right: w*0.2),
               child: Text(widget.title!,style: TextStyle(fontSize: h*0.03,color: MyColor.White,fontFamily: 'poppins_medium'),),
@@ -71,6 +91,9 @@ class _CustomSwitchState extends State<CustomSwitch>
 
   @override
   Widget build(BuildContext context) {
+    double h=MediaQuery.of(context).size.height;
+    double w=MediaQuery.of(context).size.width;
+    bool H =h<700;
     return AnimatedBuilder(
       animation: _animationController!,
       builder: (context, child) {
@@ -86,25 +109,23 @@ class _CustomSwitchState extends State<CustomSwitch>
                 : widget.onChanged(false);
           },
           child: Container(
-            width: 45.0,
-            height: 28.0,
+            width: w*0.109,
+            height: h*0.016,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24.0),
+              borderRadius: BorderRadius.circular(h),
               color: _circleAnimation!.value == Alignment.centerLeft
-                  ? Colors.grey
-                  : Colors.blue,
+                  ? MyColor.colorGreen
+                  : MyColor.colorGreen,
             ),
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  top: 2.0, bottom: 2.0, right: 2.0, left: 2.0),
+            child: Container(
+              alignment:
+              widget.value ? Alignment.centerRight : Alignment.centerLeft,
               child: Container(
-                alignment:
-                widget.value ? Alignment.centerRight : Alignment.centerLeft,
-                child: Container(
-                  width: 20.0,
-                  height: 20.0,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle, color: Colors.white),
+                width:  w*0.075,
+                height: h*0.016,
+                decoration: BoxDecoration(
+                  color: MyColor.White,
+                  borderRadius: BorderRadius.circular(h),
                 ),
               ),
             ),
