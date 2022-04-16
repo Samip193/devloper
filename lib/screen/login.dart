@@ -1,4 +1,5 @@
 import 'package:devloper/TabScreen/home.dart';
+import 'package:devloper/constant/Topbar.dart';
 import 'package:devloper/constant/mycolor.dart';
 import 'package:flutter/material.dart';
 
@@ -48,39 +49,12 @@ class _LoginScreenState extends State<LoginScreen> {
               color: MyColor.colorGreen,
             ),
             SizedBox(height: h*0.04,),
-            ConstrainedBox(
-              constraints:  BoxConstraints.tightFor(width: w*0.9),
-              child: TextField(
-                decoration: InputDecoration(
-                    prefixIcon:Padding(
-                      padding:  EdgeInsets.only(left: w*0.02),
-                      child: Image.asset("images/mail.png",scale: 1,),
-                    ),
-                    hintText: 'Email Id',
-                    hintStyle: TextStyle(color: MyColor.hintColor,fontFamily: 'poppins_regular'),
-                    contentPadding:  EdgeInsets.only(left: w*0.0275),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(h))),
-              ),
-            ),
+            Text_Filed(img: 'images/mail.png', hintText: 'Email Id',Tpadding: w*0.0),
             SizedBox(height: h*0.035),
-            ConstrainedBox(
-              constraints:  BoxConstraints.tightFor(width: w*0.9),
-              child: TextField(
-                decoration: InputDecoration(
-                    prefixIcon:Padding(
-                      padding:  EdgeInsets.only(left: w*0.045),
-                      child: Image.asset("images/user.png",scale: 1,),
-                    ),
-                    hintText: 'Password',
-                    hintStyle: TextStyle(color: MyColor.hintColor,fontFamily: 'poppins_regular'),
-                    contentPadding:  EdgeInsets.only(left: w*0.0275),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(h))),
-              ),
-            ),
+            Text_Filed(img: 'images/user.png', hintText: 'Password',Ipadding:  w*0.065),
             SizedBox(height: h*0.02,),
-            ConstrainedBox(
+
+            ConstrainedBox (
               constraints:  BoxConstraints.tightFor(width: w*0.77),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,

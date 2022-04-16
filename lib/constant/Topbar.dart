@@ -108,6 +108,53 @@ class _InfoBarState extends State<InfoBar> {
   }
 }
 
+//Text txtFiled
+class Text_Filed extends StatelessWidget {
+   Text_Filed({ required this.img, required this.hintText, this.Ipadding, this.Tpadding});
+
+   final String img;
+   final String hintText;
+   final double? Ipadding;
+   final double? Tpadding;
+
+  @override
+  Widget build(BuildContext context) {
+    double h=MediaQuery.of(context).size.height;
+    double w=MediaQuery.of(context).size.width;
+    bool H =h<700;
+    return ConstrainedBox(
+      constraints:  BoxConstraints.tightFor(width: w*0.9),
+      child: TextField(
+
+        decoration: InputDecoration(
+
+            prefixIcon:Padding(
+              padding:  EdgeInsets.only(left:Ipadding ?? w*0.045,right:Tpadding ?? w*0.01),
+              child: Image.asset(img,scale: 1,),
+            ),
+            hintText: hintText,
+            fillColor: MyColor.txtFiled_clr,
+            filled: true,
+            hintStyle: TextStyle(color: MyColor.hintColor,fontFamily: 'poppins_regular'),
+            contentPadding:  EdgeInsets.only(top: h*0.05),
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: MyColor.White, width: 5.0),
+                borderRadius: BorderRadius.circular(h)
+            ),
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: MyColor.White, width: 5.0),
+                borderRadius: BorderRadius.circular(h)
+            ),
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(h)
+            )
+        ),
+      ),
+    );
+  }
+}
+
+
 
 
 

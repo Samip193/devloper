@@ -20,6 +20,7 @@ class MyColor{
   static const Color hintColor = Color(0xFF434343);
   static const Color search_hintColor = Color(0xFF8D8D8D);
   static const Color gray = Color(0xFF707070);
+  static const Color txtFiled_clr = Color(0xFFE7E7E7);
   static const Color bottom_bg_color = Color(0xFFEFF6EF);
 
 }
