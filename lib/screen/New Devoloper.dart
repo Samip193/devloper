@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 import '../constant/mycolor.dart';
 
-class NewDevoloper extends StatefulWidget {
-  const NewDevoloper({Key? key}) : super(key: key);
+class NewDeveloper extends StatefulWidget {
+  const NewDeveloper({Key? key}) : super(key: key);
 
   @override
-  State<NewDevoloper> createState() => _NewDevoloperState();
+  State<NewDeveloper> createState() => _NewDeveloperState();
 }
 
-class _NewDevoloperState extends State<NewDevoloper> {
+class _NewDeveloperState extends State<NewDeveloper> {
   final DevoloperName = TextEditingController();
   final Amount = TextEditingController();
   final Role = TextEditingController();
