@@ -19,14 +19,16 @@ class NewScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(height: h*0.08,),
               Image.asset("images/lg.png",scale: h*0.002,),
+              SizedBox(height: h*0.02,),
               Container(
                 height: h*0.001,
                 width: w*0.45,
                 color: MyColor.borderColor,
               ),
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: w*0.15),
+                padding:  EdgeInsets.symmetric(horizontal: w*0.15,vertical: h*0.01),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -60,15 +62,66 @@ class NewScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(height: h*0.01,),
               CustomRating(Image: CustonImage,count: CustonImage.length),
-              Column(
+              SizedBox(height: h*0.01,),
+              Row(
                 children: [
-                  Row(
-                    children: [
-                      ImageIcon(AssetImage('images/board.png'))
-                    ],
-                  )
+                  ImageIcon(AssetImage('images/board.png')),
+                  Text('Developer',style: TextStyle(fontSize: h*0.028,color: MyColor.hintColor,fontFamily: 'poppins_regular')),
+                  Icon(Icons.add,size: h*0.035,)
                 ],
+              ),
+              SizedBox(height: h*0.01,),
+              ConstrainedBox(
+                constraints:  BoxConstraints.tightFor(width: w*0.9),
+                child: TextField(
+
+                  decoration: InputDecoration(
+
+
+                      hintText: 'No Any Developer Found',
+                      fillColor: MyColor.txtFiled_clr,
+                      filled: true,
+                      hintStyle: TextStyle(color: MyColor.hintColor,fontFamily: 'poppins_regular'),
+                      contentPadding:  EdgeInsets.only(left: w*0.04,top: h*0.05),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: MyColor.White, width: 5.0),
+                          borderRadius: BorderRadius.circular(h)
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: MyColor.White, width: 5.0),
+                          borderRadius: BorderRadius.circular(h)
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(h)
+                      )
+                  ),
+                ),
+              ),
+              SizedBox(height: h*0.01,),
+              MaterialButton(
+                elevation: 6,
+                onPressed: (){
+                  //Navigator.pushNamed(context, '/tab');
+                },
+                color: MyColor.btnColor,
+                shape:RoundedRectangleBorder(
+                    side: BorderSide(color: MyColor.White,width: w*0.01),
+                    borderRadius: BorderRadius.circular(h)
+                ) ,
+                minWidth: w*0.72,
+                height: h*0.07,
+                child: ConstrainedBox(
+                  constraints:  BoxConstraints.tightFor(width: w*0.3),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text('Start Project',style: TextStyle(color: MyColor.White,fontFamily: 'poppins_regular'),),
+                      Icon(Icons.login_sharp,size: h*0.025,color: MyColor.White,)
+                    ],
+                  ),
+                ),
               )
             ],
           ),
