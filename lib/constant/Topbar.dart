@@ -116,12 +116,13 @@ class _InfoBarState extends State<InfoBar> {
 
 //Text txtFiled
 class Text_Filed extends StatelessWidget {
-   Text_Filed({ required this.img, required this.hintText, this.Ipadding, this.Tpadding});
+   Text_Filed({ required this.img, required this.hintText, this.Ipadding, this.Tpadding, this.controller});
 
    final String img;
    final String hintText;
    final double? Ipadding;
    final double? Tpadding;
+    var controller;
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +132,7 @@ class Text_Filed extends StatelessWidget {
     return ConstrainedBox(
       constraints:  BoxConstraints.tightFor(width: w*0.9),
       child: TextField(
-
+        controller: controller,
         decoration: InputDecoration(
 
             prefixIcon:Padding(

@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration: BoxDecoration(
                     color: MyColor.White,
                     border: Border.all(color: MyColor.borderColor),
-                    borderRadius: BorderRadius.circular(h),
+                    shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
                           color: MyColor.shedowColor,
@@ -70,49 +70,10 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: h * 0.04,
               ),
-              ConstrainedBox(
-                constraints: BoxConstraints.tightFor(width: w * 0.9),
-                child: TextField(
-                  controller: Email,
-                  decoration: InputDecoration(
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.only(left: w * 0.02),
-                        child: Image.asset(
-                          "images/mail.png",
-                          scale: 1,
-                        ),
-                      ),
-                      hintText: 'Email Id',
-                      hintStyle: TextStyle(
-                          color: MyColor.hintColor,
-                          fontFamily: 'poppins_regular'),
-                      contentPadding: EdgeInsets.only(left: w * 0.0275),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(h))),
-                ),
-              ),
+              Text_Filed(hintText: 'Email Id',img: 'images/mail.png',controller:Email ,Ipadding:  w*0.03,Tpadding: w*0.0),
+
               SizedBox(height: h * 0.035),
-              ConstrainedBox(
-                constraints: BoxConstraints.tightFor(width: w * 0.9),
-                child: TextField(
-                  controller: pass,
-                  decoration: InputDecoration(
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.only(left: w * 0.045),
-                        child: Image.asset(
-                          "images/user.png",
-                          scale: 1,
-                        ),
-                      ),
-                      hintText: 'Password',
-                      hintStyle: TextStyle(
-                          color: MyColor.hintColor,
-                          fontFamily: 'poppins_regular'),
-                      contentPadding: EdgeInsets.only(left: w * 0.0275),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(h))),
-                ),
-              ),
+              Text_Filed(hintText: 'Password',img: 'images/user.png',controller:pass ,Ipadding:  w*0.052,Tpadding: w*0.015),
               SizedBox(
                 height: h * 0.02,
               ),
@@ -147,7 +108,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 color: MyColor.btnColor,
                 shape: RoundedRectangleBorder(
                     side: BorderSide(color: MyColor.White, width: w * 0.01),
-                    borderRadius: BorderRadius.circular(h)),
+                    borderRadius: BorderRadius.circular(h)
+                ),
                 minWidth: w * 0.72,
                 height: h * 0.07,
                 child: ConstrainedBox(
