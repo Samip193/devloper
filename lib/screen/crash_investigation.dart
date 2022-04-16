@@ -26,39 +26,49 @@ class _CrashInvestigationState extends State<CrashInvestigation> {
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-         Container(
-           height: h*0.047,
-           width: w*0.1,
-           decoration: BoxDecoration(
-             color: MyColor.red,
-             shape: BoxShape.circle,
-             border: Border.all(color: MyColor.White,width: w*0.006),
-               boxShadow: [BoxShadow(
-                 color: Colors.black.withOpacity(0.1),
-                 blurRadius: 2,
-                 spreadRadius: 1,
-                  offset: Offset(0,3)
-               )]
-           ),
-           child: Center(child: Image.asset('images/minus.png',color: MyColor.White,scale: 1,)),
+         GestureDetector(
+           onTap: (){
+             Navigator.pushNamed(context, '/adddevoloper');
+           },
+           child: Container(
+             height: h*0.047,
+             width: w*0.1,
+             decoration: BoxDecoration(
+               color: MyColor.red,
+               shape: BoxShape.circle,
+               border: Border.all(color: MyColor.White,width: w*0.006),
+                 boxShadow: [BoxShadow(
+                   color: Colors.black.withOpacity(0.1),
+                   blurRadius: 2,
+                   spreadRadius: 1,
+                    offset: Offset(0,3)
+                 )]
+             ),
+             child: Center(child: Image.asset('images/minus.png',color: MyColor.White,scale: 1,)),
 
+           ),
          ),
           SizedBox(height: h*0.01,),
-          Container(
-            height: h*0.047,
-            width: w*0.1,
-            decoration: BoxDecoration(
-                color: MyColor.txtGreen,
-                shape: BoxShape.circle,
-                border: Border.all(color: MyColor.White,width: w*0.006),
-                boxShadow: [BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 2,
-                    spreadRadius: 1,
-                    offset: Offset(0,3)
-                )]
+          GestureDetector(
+            onTap: (){
+              Navigator.pushNamed(context, '/adddevoloper');
+            },
+            child: Container(
+              height: h*0.047,
+              width: w*0.1,
+              decoration: BoxDecoration(
+                  color: MyColor.txtGreen,
+                  shape: BoxShape.circle,
+                  border: Border.all(color: MyColor.White,width: w*0.006),
+                  boxShadow: [BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 2,
+                      spreadRadius: 1,
+                      offset: Offset(0,3)
+                  )]
+              ),
+              child: Icon(Icons.add,color: MyColor.White,),
             ),
-            child: Icon(Icons.add,color: MyColor.White,),
           ),
         ],
       ),
