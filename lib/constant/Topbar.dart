@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'mycolor.dart';
 
+List<String> CustonImage =[
+  "images/android.png",
+  "images/apple.png",
+  "images/network.png"
+];
+
 class TopBar extends StatefulWidget {
   TopBar({this.title,this.onTouch, required this.showMenu}) ;
 
@@ -108,6 +114,53 @@ class _InfoBarState extends State<InfoBar> {
   }
 }
 
+//Text txtFiled
+class Text_Filed extends StatelessWidget {
+   Text_Filed({ required this.img, required this.hintText, this.Ipadding, this.Tpadding});
+
+   final String img;
+   final String hintText;
+   final double? Ipadding;
+   final double? Tpadding;
+
+  @override
+  Widget build(BuildContext context) {
+    double h=MediaQuery.of(context).size.height;
+    double w=MediaQuery.of(context).size.width;
+    bool H =h<700;
+    return ConstrainedBox(
+      constraints:  BoxConstraints.tightFor(width: w*0.9),
+      child: TextField(
+
+        decoration: InputDecoration(
+
+            prefixIcon:Padding(
+              padding:  EdgeInsets.only(left:Ipadding ?? w*0.045,right:Tpadding ?? w*0.01),
+              child: Image.asset(img,scale: 1,),
+            ),
+            hintText: hintText,
+            fillColor: MyColor.txtFiled_clr,
+            filled: true,
+            hintStyle: TextStyle(color: MyColor.hintColor,fontFamily: 'poppins_regular'),
+            contentPadding:  EdgeInsets.only(top: h*0.05),
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: MyColor.White, width: 5.0),
+                borderRadius: BorderRadius.circular(h)
+            ),
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: MyColor.White, width: 5.0),
+                borderRadius: BorderRadius.circular(h)
+            ),
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(h)
+            )
+        ),
+      ),
+    );
+  }
+}
+
+
 
 
 
@@ -183,5 +236,74 @@ class _CustomSwitchState extends State<CustomSwitch>
         );
       },
     );
+  }
+}
+
+
+class CustomRating extends StatefulWidget {
+  CustomRating({ required this.count, required this.Image,this.index}) ;
+  final int count;
+  final List<String> Image;
+  final index;
+
+
+  @override
+  State<CustomRating> createState() => _CustomRatingState();
+}
+
+class _CustomRatingState extends State<CustomRating> {
+  int? value;
+
+  @override
+  Widget build(BuildContext context) {
+    double h=MediaQuery.of(context).size.height;
+    double w=MediaQuery.of(context).size.width;
+    bool H =h<700;
+
+    return  SizedBox(
+      height: h*0.0250,
+      width: MediaQuery.of(context).size.width,
+      child: ListView.builder(
+        padding: EdgeInsets.zero,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                width: w*0.065,
+                child: Radio(
+                  activeColor: MyColor.red,
+                  value: index,
+                  groupValue: value,
+                  onChanged: (ind) => setState(() => value = index),
+                  // title: Text("Number $index"),
+                ),
+              ),
+              Container(
+                height: h*0.3,
+                width: w*0.06,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(widget.Image[index]),
+                    fit: BoxFit.fill
+                  )
+                ),
+              ),
+
+
+
+              SizedBox(width: w*0.012,),
+            ],
+          );
+        },
+        itemCount:widget.count,
+      ),
+    );
+
+
+
+
   }
 }

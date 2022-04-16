@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'Topbar.dart';
 import 'mycolor.dart';
 
 class MAin_Account extends StatelessWidget {
@@ -41,7 +42,9 @@ class MAin_Account extends StatelessWidget {
                 ],
               ),
               Text(balance,style: TextStyle(fontSize: h*0.045,color: MyColor.txtColor,fontFamily: 'poppins_semi_bold')),
+
             ],
+
           ),
         ),
       ),

@@ -81,6 +81,18 @@ flutter:
     - images/team.png
     - images/minus.png
     - images/info.png
+    - images/file.png
+    - images/client.png
+    - images/file.png
+    - images/rupee.png
+    - images/text_file.png
+    - images/timer.png
+    - images/board.png
+    - images/calander.png
+    - images/crop.png
+    - images/edit.png
+    - images/filter.png
+    - images/input.png
 
 
   #   - images/a_dot_ham.jpeg
