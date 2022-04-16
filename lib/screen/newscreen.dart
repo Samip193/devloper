@@ -49,7 +49,27 @@ class NewScreen extends StatelessWidget {
                   ],
                 ),
               ),
-
+              Padding(
+                padding:  EdgeInsets.only(left: w*0.055),
+                child: Row(
+                  children: [
+                    Container(
+                      child: ImageIcon(AssetImage('images/input.png'),size: h*0.045),
+                    ),
+                    Text('Requirement',style: TextStyle(fontSize: h*0.028,color: MyColor.hintColor,fontFamily: 'poppins_regular'))
+                  ],
+                ),
+              ),
+              CustomRating(Image: CustonImage,count: CustonImage.length),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      ImageIcon(AssetImage('images/board.png'))
+                    ],
+                  )
+                ],
+              )
             ],
           ),
         ),

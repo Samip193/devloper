@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'mycolor.dart';
 
+List<String> CustonImage =[
+  "images/android.png",
+  "images/apple.png",
+  "images/network.png"
+];
+
 class TopBar extends StatefulWidget {
   TopBar({this.title,this.onTouch, required this.showMenu}) ;
 
@@ -230,5 +236,74 @@ class _CustomSwitchState extends State<CustomSwitch>
         );
       },
     );
+  }
+}
+
+
+class CustomRating extends StatefulWidget {
+  CustomRating({ required this.count, required this.Image,this.index}) ;
+  final int count;
+  final List<String> Image;
+  final index;
+
+
+  @override
+  State<CustomRating> createState() => _CustomRatingState();
+}
+
+class _CustomRatingState extends State<CustomRating> {
+  int? value;
+
+  @override
+  Widget build(BuildContext context) {
+    double h=MediaQuery.of(context).size.height;
+    double w=MediaQuery.of(context).size.width;
+    bool H =h<700;
+
+    return  SizedBox(
+      height: h*0.0250,
+      width: MediaQuery.of(context).size.width,
+      child: ListView.builder(
+        padding: EdgeInsets.zero,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                width: w*0.065,
+                child: Radio(
+                  activeColor: MyColor.red,
+                  value: index,
+                  groupValue: value,
+                  onChanged: (ind) => setState(() => value = index),
+                  // title: Text("Number $index"),
+                ),
+              ),
+              Container(
+                height: h*0.3,
+                width: w*0.06,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(widget.Image[index]),
+                    fit: BoxFit.fill
+                  )
+                ),
+              ),
+
+
+
+              SizedBox(width: w*0.012,),
+            ],
+          );
+        },
+        itemCount:widget.count,
+      ),
+    );
+
+
+
+
   }
 }

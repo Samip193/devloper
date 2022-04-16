@@ -81,6 +81,12 @@ flutter:
     - images/rupee.png
     - images/text_file.png
     - images/timer.png
+    - images/board.png
+    - images/calander.png
+    - images/crop.png
+    - images/edit.png
+    - images/filter.png
+    - images/input.png
 
 
   #   - images/a_dot_ham.jpeg
