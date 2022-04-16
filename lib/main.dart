@@ -1,6 +1,7 @@
 import 'package:devloper/screen/New%20Devoloper.dart';
 import 'package:devloper/screen/crash_investigation.dart';
 import 'package:devloper/screen/Crashinvestigation.dart';
+import 'package:devloper/screen/new_devloper.dart';
 import 'package:devloper/screen/newscreen.dart';
 import 'package:devloper/screen/tabscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
         '/cration': (context) => const CrashInvestigation(),
         '/new': (context) => const NewScreen(),
         '/Crashinvestigation': (context) => const Crashinvestigation(),
-        '/newdevoloper': (context) => const NewDevoloper(),
+        '/newdevoloper': (context) => const NewDeveloper(),
+        '/adddevoloper': (context) => const AddDeveloper(),
       },
     );
   }
