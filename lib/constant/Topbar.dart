@@ -96,7 +96,7 @@ class _InfoBarState extends State<InfoBar> {
             ),
             GestureDetector(
               onTap: (){
-                
+
               },
                 child: Image.asset('Images/info.png')
             ),
