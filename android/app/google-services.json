@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "489695658534",
+    "project_id": "tstadminpanel",
+    "storage_bucket": "tstadminpanel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489695658534:android:84bb4ae39473d4c69c9ce7",
+        "android_client_info": {
+          "package_name": "com.example.devloper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489695658534-9g24t1hhn4kc4nfng5ff7niqu9q5qmia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfOmb-r-815W7r87BNmBKW2rl3-OLv8mI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489695658534-9g24t1hhn4kc4nfng5ff7niqu9q5qmia.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
