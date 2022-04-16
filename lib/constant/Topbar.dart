@@ -101,10 +101,17 @@ class _InfoBarState extends State<InfoBar> {
               child: Text(widget.title!,style: TextStyle(fontSize: h*0.03,color: MyColor.White,fontFamily: 'poppins_medium'),),
             ),
             GestureDetector(
-              onTap: (){
+                onTap: (){
+                  Navigator.pushNamed(context, '/Crashinvestigation');
+                },
+                child: Container(
+                  height: h*0.035,
+                  decoration: BoxDecoration(
 
-              },
-                child: Image.asset('images/info.png')
+                    shape: BoxShape.circle
+                  ),
+                    child: Image.asset('images/info.png')
+                )
             ),
 
           ],

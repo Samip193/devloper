@@ -9,6 +9,9 @@ class Crashinvestigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double h=MediaQuery.of(context).size.height;
+    double w=MediaQuery.of(context).size.width;
+    bool H =h<700;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -19,41 +22,41 @@ class Crashinvestigation extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 14),
+          padding: EdgeInsets.symmetric(horizontal: w*0.0275, vertical: h*0.02),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               aboutproject("Name", "Crash Investigation Application"),
               SizedBox(
-                height: 15,
+                height: h*0.02,
               ),
               aboutproject("Client Name", "xyz"),
               SizedBox(
-                height: 15,
+                height: h*0.02,
               ),
               aboutproject("Status", "Pendding"),
               SizedBox(
-                height: 15,
+                height: h*0.02,
               ),
               aboutproject("Project Amount", "1.5 L"),
               SizedBox(
-                height: 15,
+                height: h*0.02,
               ),
               aboutproject("Project Duration", "1 month + 1 week"),
               SizedBox(
-                height: 15,
+                height: h*0.02,
               ),
               aboutproject("Payment Recived", "80 K"),
               SizedBox(
-                height: 15,
+                height: h*0.02,
               ),
               aboutproject("Payment Remaining", "70 K"),
               SizedBox(
-                height: 15,
+                height: h*0.02,
               ),
               aboutproject("Profit", "70 K"),
               SizedBox(
-                height: 15,
+                height: h*0.02,
               ),
               Container(
                 child: Column(
@@ -63,24 +66,24 @@ class Crashinvestigation extends StatelessWidget {
                       "Project Requirements",
                       style: TextStyle(color: Colors.grey, fontSize: 14),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(height: h*0.01,),
                     Row(
                       children: [
                         SizedBox(
-                            height: 20,
-                            width: 20,
+                            height: h*0.030,
+                            width: w*0.060,
                             child: Image.asset(
                               "images/android.png",
                             )),
                         SizedBox(
-                            height: 20,
-                            width: 20,
+                            height: h*0.030,
+                            width: w*0.060,
                             child: Image.asset(
                               "images/apple.png",
                             )),
                         SizedBox(
-                            height: 20,
-                            width: 20,
+                            height: h*0.030,
+                            width: w*0.060,
                             child: Image.asset(
                               "images/web.png",
                             )),
@@ -90,7 +93,7 @@ class Crashinvestigation extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: h*0.02,
               ),
               Container(
                 child: Column(
@@ -100,25 +103,25 @@ class Crashinvestigation extends StatelessWidget {
                       "Application Developer (2)",
                       style: TextStyle(color: Colors.grey, fontSize: 14),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(height: h*0.01,),
                     Text(
                       "1. jcdhb hhdc h",
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: h*0.0225),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(height: h*0.01,),
                     Text(
                       "1. jcdhb hhdc h",
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: h*0.0225),
                     ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: h*0.02,
               ),
               aboutproject("aboutproject",'1. jcdhb hhdc h'),
               SizedBox(
-                height: 15,
+                height: h*0.02,
               ),
               aboutproject("aboutproject",'1. jcdhb hhdc h'),
             ],
@@ -128,7 +131,19 @@ class Crashinvestigation extends StatelessWidget {
     );
   }
 
-  Widget aboutproject(title, data) {
+
+}
+class aboutproject extends StatelessWidget {
+  const aboutproject(this.title, this.data);
+
+  final String title;
+  final String data;
+
+  @override
+  Widget build(BuildContext context) {
+    double h=MediaQuery.of(context).size.height;
+    double w=MediaQuery.of(context).size.width;
+    bool H =h<700;
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,10 +152,10 @@ class Crashinvestigation extends StatelessWidget {
             title,
             style: TextStyle(color: Colors.grey, fontSize: 14),
           ),
-          SizedBox(height: 5,),
+          SizedBox(height: h*0.01,),
           Text(
             data,
-            style: TextStyle(fontSize: 16),
+            style:  TextStyle(fontSize: h*0.0225),
           ),
         ],
       ),
