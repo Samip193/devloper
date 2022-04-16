@@ -11,6 +11,7 @@ class MyColor{
   static const Color red = Color(0xFFFF0808);
   static const Color colorCyan = Color(0xFFEBFFEB);
   static const Color colorGreen = Color(0xFF00B600);
+  static const Color txtGreen = Color(0xFF00B600);
   static const Color colorPink = Color(0xFFFFEBEB);
   static const Color bgColor = Color(0xFFF1F1F1);
   static const Color bgColorWhite = Color(0xFFFFFFFF);
@@ -226,6 +227,114 @@ class _SearchBarState extends State<SearchBar> {
   }
 
 }
+
+class ProfitCard extends StatelessWidget {
+  const ProfitCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double h=MediaQuery.of(context).size.height;
+    double w=MediaQuery.of(context).size.width;
+    bool H =h<700;
+    return Container(
+      height: h*0.29,
+      width: w*0.90,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(h*0.015),
+        boxShadow: [
+          BoxShadow(
+            color: MyColor.shedowColor,
+            spreadRadius: 2,
+            blurRadius: 7,
+            offset: const Offset(2, 5), // changes position of shadow
+          ),
+        ],
+        // border: Border.all(color: Colors.blueAccent)
+      ),
+      child: Padding(
+        padding:  EdgeInsets.symmetric(horizontal: w*0.0375,vertical: h*0.015   ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Project ID : 161654651',style: TextStyle(fontSize: h*0.017,color: MyColor.txtColor,fontFamily: 'poppins_regular'),),
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                      maxWidth: w*0.2
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Image.asset('images/android.png',scale: 1,),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Crash investigation',maxLines: 2,style: TextStyle(fontSize: h*0.028,color: MyColor.txtColor,fontFamily: 'poppins_medium')),
+                    Text('Application',maxLines: 2,style: TextStyle(fontSize: h*0.028,color: MyColor.txtColor,fontFamily: 'poppins_medium')),
+                  ],
+                ),
+                ConstrainedBox(
+                    constraints: BoxConstraints(
+                        maxWidth: w*0.22
+                    ),
+                    child:Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          height: h*0.07,
+                          width: w*0.004,
+                          color: MyColor.gray,
+                        ),
+                        Padding(
+                          padding:  EdgeInsets.only(right: w*0.01),
+                          child: Text('1.5 L',style: TextStyle(fontSize: h*0.028,color: MyColor.txtColor,fontFamily: 'poppins_medium')),
+                        )
+                      ],
+                    )
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Text('Profit:',style: TextStyle(fontSize: h*0.018,color: MyColor.txtColor,fontFamily: 'poppins_regular')),
+                    Text(' 4 K',style: TextStyle(fontSize: h*0.022,color: MyColor.txtGreen,fontFamily: 'poppins_regular'))
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Text('Gain:',style: TextStyle(textBaseline: TextBaseline.ideographic,fontSize: h*0.018,color: MyColor.txtColor,fontFamily: 'poppins_regular')),
+                    Text(' 1 K',style: TextStyle(textBaseline: TextBaseline.ideographic,fontSize: h*0.022,color: MyColor.txtGreen,fontFamily: 'poppins_regular'))
+                  ],
+                )
+              ],
+            )
+
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
 
 class Indecetor extends StatelessWidget {
   const Indecetor({Key? key}) : super(key: key);
