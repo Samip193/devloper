@@ -73,8 +73,20 @@ class _AccountScreenState extends State<AccountScreen> {
             padding:  EdgeInsets.symmetric(horizontal: w*0.035),
             child: Row(
               children: [
-                Icon(Icons.add,color: MyColor.txtColor),
-                Text('New',style: TextStyle(fontSize: h*0.018,color: MyColor.txtColor,fontFamily: 'poppins_regular')),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pushNamed(context, '/new');
+                  },
+                  child: Container(
+                    width: w*0.15,
+                    child: Row(
+                      children: [
+                        Icon(Icons.add,color: MyColor.txtColor),
+                        Text('New',style: TextStyle(fontSize: h*0.018,color: MyColor.txtColor,fontFamily: 'poppins_regular')),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
