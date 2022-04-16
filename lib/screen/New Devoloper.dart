@@ -63,7 +63,7 @@ class _NewDevoloperState extends State<NewDevoloper> {
                     padding: EdgeInsets.only(left: w * 0.02),
                     child: Image.asset(
                       "images/rupee.png",
-                      scale: 30,
+                      scale: 1,
                     ),
                   ),
                   hintText:'Amount',

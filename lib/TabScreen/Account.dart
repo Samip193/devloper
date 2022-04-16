@@ -76,7 +76,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 children: [
                   GestureDetector(
                     onTap: (){
-                      Navigator.pushNamed(context, '/newdevoloper');
+                      Navigator.pushNamed(context, '/new');
                     },
                     child: Container(
                       width: w*0.16,
