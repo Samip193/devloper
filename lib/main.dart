@@ -1,13 +1,16 @@
 import 'package:devloper/screen/crash_investigation.dart';
-import 'package:devloper/screen/newscreen.dart';
+import 'package:devloper/screen/Crashinvestigation.dart';
 import 'package:devloper/screen/tabscreen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'TabScreen/home.dart';
 import 'screen/login.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -28,7 +31,7 @@ class MyApp extends StatelessWidget {
         '/tab': (context) => const TabScreen(),
         '/home': (context) => const HomeScreen(),
         '/cration': (context) => const CrashInvestigation(),
-        '/new': (context) => const NewScreen(),
+        '/new': (context) => const Crashinvestigation(),
       },
     );
   }

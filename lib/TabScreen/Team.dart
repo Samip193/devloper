@@ -11,14 +11,10 @@ class TeamScreen extends StatelessWidget {
     double w=MediaQuery.of(context).size.width;
     bool H =h<700;
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            width: w,
-            height: h,
-            color: MyColor.hintColor,
-          )
-        ],
+      body: Container(
+        width: w,
+        height: h,
+        color: MyColor.hintColor,
       ),
     );
   }
