@@ -46,8 +46,8 @@ class _AccountScreenState extends State<AccountScreen> {
               Positioned(
                 right: w*0.07,
                 child: Container(
-                  height: h*0.05,
-                  width: w*0.19,
+                  height: h*0.08,
+                  width: w*0.20,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -78,7 +78,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     Navigator.pushNamed(context, '/new');
                   },
                   child: Container(
-                    width: w*0.15,
+                    width: w*0.16,
                     child: Row(
                       children: [
                         Icon(Icons.add,color: MyColor.txtColor),
@@ -93,7 +93,7 @@ class _AccountScreenState extends State<AccountScreen> {
           SearchBar(),
           GestureDetector(
             onTap: (){
-              Navigator.pushNamed(context, '/cration');
+              _enable ? Navigator.pushNamed(context, '/new'):Navigator.pushNamed(context, '/cration');
             },
             child: Padding(
               padding:  EdgeInsets.only(top:h*0.01),
@@ -103,7 +103,6 @@ class _AccountScreenState extends State<AccountScreen> {
 
           ],
         ),
-      ),
-    );
+      );
   }
 }
