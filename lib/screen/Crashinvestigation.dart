@@ -13,9 +13,9 @@ class Crashinvestigation extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Crash Investigation Application',
-          style: TextStyle(fontFamily: 'poppins_medium'),
-        ),
-        backgroundColor: MyColor.app_bar_Color,
+            style: TextStyle(fontFamily: 'poppins_medium'),
+          ),
+          backgroundColor: MyColor.app_bar_Color,
       ),
       body: SingleChildScrollView(
         child: Padding(

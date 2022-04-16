@@ -43,9 +43,18 @@ class ProgressCard extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Image.asset('images/android.png',scale: 1,),
-                      Image.asset('images/apple.png',scale: 1,),
-                      Image.asset('images/network.png',scale: 1,),
+                      SizedBox(
+                          height:20,
+                          width: 20,
+                          child: Image.asset('images/android.png',scale: 1,)),
+                      SizedBox(
+                          height:20,
+                          width: 20,
+                          child: Image.asset('images/apple.png',scale: 1,)),
+                      SizedBox( height:20,
+                          width: 20,
+                          child: Image.asset('images/network.png',scale: 1,)),
+
 
                     ],
                   ),

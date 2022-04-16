@@ -1,3 +1,4 @@
+import 'package:devloper/screen/New%20Devoloper.dart';
 import 'package:devloper/screen/crash_investigation.dart';
 import 'package:devloper/screen/Crashinvestigation.dart';
 import 'package:devloper/screen/tabscreen.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomeScreen(),
         '/cration': (context) => const CrashInvestigation(),
         '/new': (context) => const Crashinvestigation(),
+        '/newdevoloper': (context) => const NewDevoloper(),
       },
     );
   }

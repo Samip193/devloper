@@ -118,7 +118,7 @@ class OverallDetails extends StatelessWidget {
                       child: Column(
                         children: [
                           Text('10',style: TextStyle(fontSize: h*0.07,color: MyColor.txtColor,fontFamily: 'poppins_semi_bold')),
-                          Text('Projects',style: TextStyle(fontSize: h*0.02,color: MyColor.txtColor,fontFamily: 'poppins_regular')),
+                          Text('Clients',style: TextStyle(fontSize: h*0.02,color: MyColor.txtColor,fontFamily: 'poppins_regular')),
                         ],
                       ),
                     ),
@@ -136,7 +136,7 @@ class OverallDetails extends StatelessWidget {
                       child: Column(
                         children: [
                           Text('20',style: TextStyle(fontSize: h*0.07,color: MyColor.txtColor,fontFamily: 'poppins_semi_bold')),
-                          Text('Devloper',style: TextStyle(fontSize: h*0.02,color: MyColor.txtColor,fontFamily: 'poppins_regular')),
+                          Text('Intern',style: TextStyle(fontSize: h*0.02,color: MyColor.txtColor,fontFamily: 'poppins_regular')),
                         ],
                       ),
                     ),
@@ -268,7 +268,10 @@ class ProfitCard extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Image.asset('images/android.png',scale: 1,),
+                      SizedBox(
+                          height:20,
+                          width: 20,
+                          child: Image.asset('images/android.png',scale: 1,)),
                     ],
                   ),
                 )
@@ -376,9 +379,17 @@ class Indecetor extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Image.asset('images/android.png',scale: 1,),
-                      Image.asset('images/apple.png',scale: 1,),
-                      Image.asset('images/network.png',scale: 1,),
+                      SizedBox(
+                          height:20,
+                          width: 20,
+                          child: Image.asset('images/android.png',scale: 1,)),
+                      SizedBox(
+                          height:20,
+                          width: 20,
+                          child: Image.asset('images/apple.png',scale: 1,)),
+                      SizedBox( height:20,
+                          width: 20,
+                          child: Image.asset('images/network.png',scale: 1,)),
 
                     ],
                   ),
@@ -466,9 +477,15 @@ class _ProgressIndecetorState extends State<ProgressIndecetor> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Image.asset('images/android.png',scale: 1,),
-                      Image.asset('images/apple.png',scale: 1,),
-                      Image.asset('images/network.png',scale: 1,),
+                      SizedBox(
+                          height:20,
+                          width: 20,child: Image.asset('images/android.png',scale: 1,)),
+                      SizedBox(
+                          height:20,
+                          width: 20,child: Image.asset('images/apple.png',scale: 1,)),
+                      SizedBox(
+                          height:20,
+                          width: 20,child: Image.asset('images/network.png',scale: 1,)),
 
                     ],
                   ),

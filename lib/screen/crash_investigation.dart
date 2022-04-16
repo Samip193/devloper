@@ -40,7 +40,7 @@ class _CrashInvestigationState extends State<CrashInvestigation> {
                   offset: Offset(0,3)
                )]
            ),
-           child: Center(child: Image.asset('Images/minus.png',color: MyColor.White,scale: 1,)),
+           child: Center(child: Image.asset('images/minus.png',color: MyColor.White,scale: 1,)),
 
          ),
           SizedBox(height: h*0.01,),
