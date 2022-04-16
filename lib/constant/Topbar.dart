@@ -98,7 +98,7 @@ class _InfoBarState extends State<InfoBar> {
               onTap: (){
 
               },
-                child: Image.asset('Images/info.png')
+                child: Image.asset('images/info.png')
             ),
 
           ],

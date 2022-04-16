@@ -73,7 +73,9 @@ flutter:
     - images/active_home.png
     - images/active_acccount.png
     - images/team.png
-    
+    - images/minus.png
+    - images/info.png
+
 
   #   - images/a_dot_ham.jpeg
 
