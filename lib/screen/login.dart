@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
               decoration: BoxDecoration(
                 color: MyColor.White,
                 border: Border.all(color: MyColor.borderColor),
-                borderRadius: BorderRadius.circular(h),
+                  shape: BoxShape.circle,
                 boxShadow: [BoxShadow(
                   color: MyColor.shedowColor,
                   spreadRadius: 2,
