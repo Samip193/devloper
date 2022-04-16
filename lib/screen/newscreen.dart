@@ -3,9 +3,18 @@ import 'package:flutter/material.dart';
 import '../constant/Topbar.dart';
 import '../constant/mycolor.dart';
 
-class NewScreen extends StatelessWidget {
+class NewScreen extends StatefulWidget {
   const NewScreen({Key? key}) : super(key: key);
 
+  @override
+  State<NewScreen> createState() => _NewScreenState();
+}
+
+class _NewScreenState extends State<NewScreen> {
+
+  bool android = false;
+  bool apple = false;
+  bool web = false;
   @override
   Widget build(BuildContext context) {
     double h=MediaQuery.of(context).size.height;
@@ -62,10 +71,84 @@ class NewScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: h*0.01,),
-                Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: 22.0),
-                  child: CustomRating(Image: CustonImage,count: CustonImage.length),
-                ),
+                      Padding(
+                        padding:  EdgeInsets.symmetric(horizontal: 18.0),
+                        child: Row(
+                          children: [
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap:(){
+                                    setState(() {
+                                      android = !android;
+                                    });
+                                  },
+                                  child: Container(
+                                    width: 20,
+                                    height: 20,
+                                    decoration: BoxDecoration(
+                                      color: android == true ? Colors.black:Colors.white,
+                                        border: Border.all(color: Colors.grey),
+                                      borderRadius:  BorderRadius.all(Radius.circular(100.0))
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width : w *0.04),
+                                SizedBox(width: 20,
+                                    height: 20,child: Image.asset('images/android.png')),
+                              ],
+                            ),
+                            SizedBox(width : w *0.1),
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap:(){
+                                    setState(() {
+                                      apple = !apple;
+                                    });
+                                  },
+                                  child: Container(
+                                    width: 20,
+                                    height: 20,
+                                    decoration: BoxDecoration(
+                                      color:apple == true? Colors. black: Colors.white,
+                                        border: Border.all(color: Colors.grey),
+                                        borderRadius:  BorderRadius.all(Radius.circular(100.0))
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width : w *0.04),
+                                SizedBox(width: 20,
+                                    height: 20,child: Image.asset('images/apple.png')),
+                              ],
+                            ),
+                            SizedBox(width : w *0.1),
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap:(){
+                                    setState(() {
+                                      web=!web;
+                                    });
+                                  },
+                                  child: Container(
+                                    width: 20,
+                                    height: 20,
+                                    decoration: BoxDecoration(
+                                      color: web== true? Colors.black:Colors.white,
+                                        border: Border.all(color: Colors.grey),
+                                        borderRadius:  BorderRadius.all(Radius.circular(100.0))
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width : w *0.04),
+                                SizedBox(width: 20,
+                                    height: 20,child: Image.asset('images/web.png')),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
                 SizedBox(height: h*0.01,),
                 Padding(
                   padding:  EdgeInsets.symmetric(horizontal: 22.0),
@@ -110,7 +193,7 @@ class NewScreen extends StatelessWidget {
                 MaterialButton(
                   elevation: 6,
                   onPressed: (){
-                    //Navigator.pushNamed(context, '/tab');
+                    Navigator.pushNamed(context, '/tab');
                   },
                   color: MyColor.btnColor,
                   shape:RoundedRectangleBorder(
