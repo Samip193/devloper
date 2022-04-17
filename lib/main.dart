@@ -2,6 +2,8 @@ import 'package:devloper/screen/New%20Devoloper.dart';
 import 'package:devloper/screen/crash_investigation.dart';
 import 'package:devloper/screen/Crashinvestigation.dart';
 import 'package:devloper/screen/newproject.dart';
+import 'package:devloper/screen/paymant_details.dart';
+import 'package:devloper/screen/payment.dart';
 import 'package:devloper/screen/tabscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -36,9 +38,11 @@ class MyApp extends StatelessWidget {
         '/cration': (context) => const CrashInvestigation(),
         '/new': (context) => const NewScreen(),
         '/Crashinvestigation': (context) => const Crashinvestigation(),
-        '/newdevoloper': (context) => const NewDeveloper(),
         '/adddevoloper': (context) => const NewDeveloper(),
         '/allproject': (context) => const ProjectScreen(),
+        '/paymentdetail': (context) => const PaymentDetails(),
+        '/payment': (context) => const PaymentScreen(),
+
       },
     );
   }

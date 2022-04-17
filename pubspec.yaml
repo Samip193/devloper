@@ -90,10 +90,12 @@ flutter:
     - images/calander.png
     - images/crop.png
     - images/edit.png
+    - images/use.png
     - images/filter.png
     - images/input.png
     - images/check.png
     - images/down.png
+    - images/line.png
 
 
   #   - images/a_dot_ham.jpeg
