@@ -146,13 +146,14 @@ class CustomTextModel extends StatelessWidget {
 }
 
 class TransactionDetail extends StatelessWidget {
-   TransactionDetail({ required this.transaction, required this.transferAmount, required this.transferVia, required this.givenBy, required this.time, required this.date});
+  TransactionDetail({ required this.transaction, required this.transferAmount, required this.transferVia, required this.givenBy, required this.time, required this.date, this.color});
   final String transaction;
   final String transferAmount;
   final String transferVia;
   final String givenBy;
   final String time;
   final String date;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +167,7 @@ class TransactionDetail extends StatelessWidget {
           width: w,
           height: h*0.05,
           decoration: BoxDecoration(
-              color: MyColor.White,
+              color:color ?? MyColor.White,
               borderRadius: BorderRadius.circular(10)
           ),
           child: Padding(
@@ -186,7 +187,7 @@ class TransactionDetail extends StatelessWidget {
               width: w,
               height: h*0.19,
               decoration: BoxDecoration(
-                  color: MyColor.White,
+                  color:color ?? MyColor.White,
                   borderRadius: BorderRadius.circular(h*0.010)
               ),
             ),

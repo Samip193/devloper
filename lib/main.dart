@@ -4,6 +4,7 @@ import 'package:devloper/screen/Crashinvestigation.dart';
 import 'package:devloper/screen/newproject.dart';
 import 'package:devloper/screen/paymant_details.dart';
 import 'package:devloper/screen/payment.dart';
+import 'package:devloper/screen/payment_history.dart';
 import 'package:devloper/screen/tabscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         '/adddevoloper': (context) => const NewDeveloper(),
         '/allproject': (context) => const ProjectScreen(),
         '/payment': (context) => const PaymentScreen(),
+        '/history': (context) => const PaymentHistory(),
 
       },
     );
