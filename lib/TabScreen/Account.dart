@@ -94,7 +94,7 @@ class _AccountScreenState extends State<AccountScreen> {
             SearchBar(),
             GestureDetector(
               onTap: (){
-                _enable ? Navigator.pushNamed(context, '/new'):Navigator.pushNamed(context, '/cration');
+                Navigator.pushNamed(context, '/cration');
               },
               child: Padding(
                 padding:  EdgeInsets.only(top:h*0.01),
