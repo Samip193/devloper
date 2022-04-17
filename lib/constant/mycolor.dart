@@ -6,6 +6,7 @@ class MyColor{
 
   static const Color btnColor = Color(0xFF0D112E);
   static const Color app_bar_Color = Color(0xFF0D112E);
+  static const Color filterClr = Color(0xFFF5F5F5);
   static const Color borderColor = Color(0xFF0D112E);
   static const Color txtColor = Color(0xFF0D112E);
   static const Color red = Color(0xFFFF0808);
