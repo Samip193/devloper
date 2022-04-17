@@ -27,8 +27,8 @@ class _CrashInvestigationState extends State<CrashInvestigation> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
          GestureDetector(
-           onTap: (){
-             Navigator.pushNamed(context, '/adddevoloper');
+           onTap: () {
+             Navigator.pushNamed(context, '/newdevoloper');
            },
            child: Container(
              height: h*0.047,
@@ -50,8 +50,8 @@ class _CrashInvestigationState extends State<CrashInvestigation> {
          ),
           SizedBox(height: h*0.01,),
           GestureDetector(
-            onTap: (){
-              Navigator.pushNamed(context, '/adddevoloper');
+            onTap: () {
+              Navigator.pushNamed(context, '/newdevoloper');
             },
             child: Container(
               height: h*0.047,
