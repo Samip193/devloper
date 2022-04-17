@@ -3,6 +3,8 @@ import 'package:devloper/constant/Topbar.dart';
 import 'package:devloper/constant/mycolor.dart';
 import 'package:flutter/material.dart';
 
+import '../screen/crash_investigation.dart';
+
 class ProjectScreen extends StatefulWidget {
   const ProjectScreen({Key? key}) : super(key: key);
 
@@ -34,9 +36,12 @@ class _ProjectScreenState extends State<ProjectScreen> {
                   if (!snapshot.hasData) return  Text('Loading...');
                   data = snapshot.data!.docs;
                   return  ListView.builder(
+                    padding: EdgeInsets.zero,
                 itemCount: data.length,
                 itemBuilder: (BuildContext context,int index){
-                  return ProgressIndecetor(data,index);
+                  return InkWell(onTap:(){Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CrashInvestigation(data,index)),);},child: ProgressIndecetor(data,index));
                     },
                   );
                 }

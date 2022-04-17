@@ -3,6 +3,8 @@ import 'package:devloper/constant/Topbar.dart';
 import 'package:devloper/constant/mycolor.dart';
 import 'package:flutter/material.dart';
 
+import '../screen/crash_investigation.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -75,7 +77,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: 1,
                       itemBuilder: (BuildContext context, int index) {
-                        return ProgressIndecetor(data, 0);
+                        return InkWell(onTap:(){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => CrashInvestigation(data,index)),);
+                        },child: ProgressIndecetor(data, 0));
                       },
                     );
                   }),

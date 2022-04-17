@@ -107,40 +107,33 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
             ),
             SearchBar(),
-            GestureDetector(
-                onTap: () {
-                  _enable
-                      ? Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => CrashInvestigation()),)
-                      : Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CrashInvestigation()));
-                },
-                child: Padding(
-                    padding: EdgeInsets.only(top: h * 0.01),
-                    child: _enable
-                        ? ProfitCard()
-                        : StreamBuilder<QuerySnapshot>(
-                            stream: FirebaseFirestore.instance
-                                .collection('projectdata')
-                                .snapshots(),
-                            builder: (BuildContext context,
-                                AsyncSnapshot<QuerySnapshot> snapshot) {
-                              if (!snapshot.hasData) return Text('Loading...');
-                              data = snapshot.data!.docs;
-                              return SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height / 2.5,
-                                child: ListView.builder(
-                                    padding: EdgeInsets.zero,
-                                    itemCount: data.length,
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return Indecetor(data, index);
-                                    }),
-                              );
-                            })))
+            Padding(
+                padding: EdgeInsets.only(top: h * 0.01),
+                child: _enable
+                    ? ProfitCard()
+                    : StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection('projectdata')
+                            .snapshots(),
+                        builder: (BuildContext context,
+                            AsyncSnapshot<QuerySnapshot> snapshot) {
+                          if (!snapshot.hasData) return Text('Loading...');
+                          data = snapshot.data!.docs;
+                          return SizedBox(
+                            height:
+                                MediaQuery.of(context).size.height / 2.5,
+                            child: ListView.builder(
+                                padding: EdgeInsets.zero,
+                                itemCount: data.length,
+                                itemBuilder:
+                                    (BuildContext context, int index) {
+                                  return InkWell(onTap:(){
+                                    Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => CrashInvestigation(data,index)),);},child: Indecetor(data, index));
+                                }),
+                          );
+                        }))
           ],
         ),
       ),

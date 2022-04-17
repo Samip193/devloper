@@ -2,9 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'mycolor.dart';
 
-class ProgressCard extends StatelessWidget {
-  const ProgressCard({Key? key}) : super(key: key);
+class ProgressCard extends StatefulWidget {
+  var data;
 
+  var index;
+
+   ProgressCard(this.data, this.index, {Key? key}) : super(key: key);
+
+  @override
+  State<ProgressCard> createState() => _ProgressCardState();
+}
+
+class _ProgressCardState extends State<ProgressCard> {
   @override
 
   Widget build(BuildContext context) {
@@ -35,7 +44,7 @@ class ProgressCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Project ID : 161654651',style: TextStyle(fontSize: h*0.017,color: MyColor.txtColor,fontFamily: 'poppins_regular'),),
+                Text('Project ID : ${widget.data[widget.index]['projectid']}',style: TextStyle(fontSize: h*0.017,color: MyColor.txtColor,fontFamily: 'poppins_regular'),),
                 ConstrainedBox(
                   constraints: BoxConstraints(
                       maxWidth: w*0.2
@@ -45,17 +54,13 @@ class ProgressCard extends StatelessWidget {
                     children: [
                       SizedBox(
                           height:20,
-                          width: 20,
-                          child: Image.asset('images/android.png',scale: 1,)),
+                          width: 20,child:widget.data[widget.index]['forandroid'] == true ? Image.asset('images/android.png',scale: 1,):SizedBox()),
                       SizedBox(
                           height:20,
-                          width: 20,
-                          child: Image.asset('images/apple.png',scale: 1,)),
-                      SizedBox( height:20,
-                          width: 20,
-                          child: Image.asset('images/network.png',scale: 1,)),
-
-
+                          width: 20,child:widget.data[widget.index]['forapple'] == true ? Image.asset('images/apple.png',scale: 1,):SizedBox()),
+                      SizedBox(
+                          height:20,
+                          width: 20,child:widget.data[widget.index]['forweb'] == true ? Image.asset('images/network.png',scale: 1,):SizedBox()),
                     ],
                   ),
                 )

@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import '../constant/mycolor.dart';
 
 class PaymentDetails extends StatefulWidget {
-  const PaymentDetails({Key? key}) : super(key: key);
+  var data;
+
+  int index;
+
+   PaymentDetails(this.data, int this.index, {Key? key}) : super(key: key);
 
   @override
   State<PaymentDetails> createState() => _PaymentDetailsState();
@@ -60,7 +64,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                 Positioned(
                   left: w*0.04,
                   bottom: -h*0.084,
-                    child: DeveloperPaymentDetail(Name: 'Dharam kachhadiya',Role: 'API Devepoer',progress:'Payment Progress' ,percentage: '83%',percent:0.83 ),
+                    child: DeveloperPaymentDetail(Name: widget.data[widget.index]["devoloperName"],Role: widget.data[widget.index]["Role"],progress:'Payment Progress' ,percentage: '83%',percent:0.83 ),
                 ),
               ],
             ),
@@ -97,7 +101,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                           width: w*0.003,
                           color: MyColor.text_light,
                         ),
-                        CustomTextModel(amount:'30 K',txt: 'Total', ),
+                        CustomTextModel(amount:widget.data[widget.index]['Amount'].toString(),txt: 'Total', ),
                       ],
                     ),
                   ),
@@ -110,24 +114,6 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                     time:'21:45' ,
                   ),
                   SizedBox(height: h*0.02,),
-                  TransactionDetail(
-                    transaction: 'ASKcdhb3221',
-                    transferAmount: '10 K',
-                    transferVia: 'Paytm UPI',
-                    givenBy: 'Parth makawana',
-                    date: '02/05/2021',
-                    time:'21:45' ,
-                  ),
-                  SizedBox(height: h*0.02,),
-                  TransactionDetail(
-                    transaction: 'ASKcdhb3221',
-                    transferAmount: '10 K',
-                    transferVia: 'Paytm UPI',
-                    givenBy: 'Parth makawana',
-                    date: '02/05/2021',
-                    time:'21:45' ,
-                  ),
-                  SizedBox(height: h*0.1,),
                 ],
               ),
             ),
@@ -198,7 +184,7 @@ class TransactionDetail extends StatelessWidget {
           children: [
             Container(
               width: w,
-              height: h*0.135,
+              height: h*0.19,
               decoration: BoxDecoration(
                   color: MyColor.White,
                   borderRadius: BorderRadius.circular(h*0.010)
@@ -239,7 +225,7 @@ class TransactionDetail extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: h*0.1,
+                    height: h*0.15,
                     width: w*0.003,
                     color: MyColor.text_light,
                   ),
@@ -247,7 +233,7 @@ class TransactionDetail extends StatelessWidget {
                     padding:  EdgeInsets.only(left:w*0.015),
                     child: Container(
                       width: w*0.41,
-                      height: h*0.11,
+                      height: h*0.17,
 
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -5,7 +5,11 @@ import '../constant/crash_component.dart';
 import '../constant/mycolor.dart';
 
 class CrashInvestigation extends StatefulWidget {
-  const CrashInvestigation({Key? key}) : super(key: key);
+  var data;
+
+  int index;
+
+  CrashInvestigation(this.data, int this.index, {Key? key}) : super(key: key);
 
   @override
   State<CrashInvestigation> createState() => _CrashInvestigationState();
@@ -28,7 +32,7 @@ class _CrashInvestigationState extends State<CrashInvestigation> {
         children: [
          GestureDetector(
            onTap: () {
-             Navigator.pushNamed(context, '/newdevoloper');
+             Navigator.pushNamed(context, '/adddevoloper');
            },
            child: Container(
              height: h*0.047,
@@ -51,7 +55,7 @@ class _CrashInvestigationState extends State<CrashInvestigation> {
           SizedBox(height: h*0.01,),
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, '/newdevoloper');
+              Navigator.pushReplacementNamed(context, '/adddevoloper');
             },
             child: Container(
               height: h*0.047,
@@ -86,7 +90,7 @@ class _CrashInvestigationState extends State<CrashInvestigation> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      TextModel(amount:'1.5 L',txt: 'Amount', ),
+                      TextModel(amount:widget.data[widget.index]["projectamount"],txt: 'Amount', ),
                       Container(
                         height: h*0.07,
                         width: w*0.004,
@@ -133,7 +137,7 @@ class _CrashInvestigationState extends State<CrashInvestigation> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      TextModel(amount:'0',txt: 'Hiren', ),
+                      TextModel(amount:widget.data[widget.index]["projectamount"],txt: widget.data[widget.index]["Devoloper"], ),
                       Container(
                         height: h*0.07,
                         width: w*0.004,
@@ -153,7 +157,7 @@ class _CrashInvestigationState extends State<CrashInvestigation> {
             ) ,
           ),
           SizedBox(height: h*0.03,),
-          ProgressCard(),
+          ProgressCard(widget.data,widget.index),
 
         ],
       ),

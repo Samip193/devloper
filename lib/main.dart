@@ -35,12 +35,10 @@ class MyApp extends StatelessWidget {
         '/': (context) => const LoginScreen(),
         '/tab': (context) => const TabScreen(),
         '/home': (context) => const HomeScreen(),
-        '/cration': (context) => const CrashInvestigation(),
         '/new': (context) => const NewScreen(),
         '/Crashinvestigation': (context) => const Crashinvestigation(),
         '/adddevoloper': (context) => const NewDeveloper(),
         '/allproject': (context) => const ProjectScreen(),
-        '/paymentdetail': (context) => const PaymentDetails(),
         '/payment': (context) => const PaymentScreen(),
 
       },
