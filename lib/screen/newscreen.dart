@@ -225,14 +225,10 @@ class _NewScreenState extends State<NewScreen> {
                             SizedBox(
                               width: w * 0.36,
                             ),
-                            InkWell(
-                                onTap: () {
-                                  Navigator.pushNamed(context, '/newdevoloper');
-                                },
-                                child: Icon(
-                                  Icons.add,
-                                  size: h * 0.035,
-                                ))
+                            Icon(
+                              Icons.add,
+                              size: h * 0.035,
+                            )
                           ],
                         ),
                       ),
