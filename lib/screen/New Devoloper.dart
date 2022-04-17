@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,11 +20,9 @@ class _NewDeveloperState extends State<NewDeveloper> {
 
   // List of items in our dropdown menu
   var items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
+    'Api devoloper',
+    'Frontend Devoloper',
+    'backend Devoloper',
   ];
   @override
   Widget build(BuildContext context) {
@@ -40,7 +39,22 @@ class _NewDeveloperState extends State<NewDeveloper> {
         actions: [
           Padding(
             padding:  EdgeInsets.all(8.0),
-            child: IconButton(onPressed: (){}, icon:Icon(Icons.check,size: 30,)),
+            child: IconButton(onPressed: (){setState(() {
+              if(DevoloperName.text.isNotEmpty&&Amount.text.isNotEmpty&&dropdownvalue!.isNotEmpty){
+                FirebaseFirestore.instance.collection('devoloper').doc().set(
+                    {
+                      "devoloperName":DevoloperName.text,
+                      "Amount":Amount.text,
+                      "Role":dropdownvalue,
+                    }
+                );
+              }else{
+                showSnackBar("Enter All fields",context,Colors.red);
+              }
+              showSnackBar("Devolper Added",context,Colors.green);
+              Navigator.pushNamed(context, '/home');
+            });
+            }, icon:Icon(Icons.check,size: 30,)),
           ),
         ],
       ),
@@ -106,6 +120,15 @@ class _NewDeveloperState extends State<NewDeveloper> {
             ),
           ],
         ),
+      ),
+    );
+  }
+  void showSnackBar(String content, BuildContext context, snackcolor) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: snackcolor,
+        content: Text(content),
+        duration: Duration(milliseconds: 1500),
       ),
     );
   }

@@ -1,9 +1,11 @@
 import 'package:devloper/screen/New%20Devoloper.dart';
 import 'package:devloper/screen/crash_investigation.dart';
 import 'package:devloper/screen/Crashinvestigation.dart';
-import 'package:devloper/screen/new_devloper.dart';
+import 'package:devloper/screen/newproject.dart';
 import 'package:devloper/screen/tabscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import 'TabScreen/Project.dart';
 import 'TabScreen/home.dart';
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
         '/new': (context) => const NewScreen(),
         '/Crashinvestigation': (context) => const Crashinvestigation(),
         '/newdevoloper': (context) => const NewDeveloper(),
-        '/adddevoloper': (context) => const AddDeveloper(),
+        '/adddevoloper': (context) => const NewDeveloper(),
         '/allproject': (context) => const ProjectScreen(),
       },
     );
