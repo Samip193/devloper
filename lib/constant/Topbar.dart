@@ -123,9 +123,9 @@ class _InfoBarState extends State<InfoBar> {
 
 //Text txtFiled
 class Text_Filed extends StatelessWidget {
-   Text_Filed({ required this.img, required this.hintText, this.Ipadding, this.Tpadding, this.controller});
+   Text_Filed({  this.img, required this.hintText, this.Ipadding, this.Tpadding, this.controller});
 
-   final String img;
+   final String? img;
    final String hintText;
    final double? Ipadding;
    final double? Tpadding;
@@ -144,7 +144,7 @@ class Text_Filed extends StatelessWidget {
 
             prefixIcon:Padding(
               padding:  EdgeInsets.only(left:Ipadding ?? w*0.045,right:Tpadding ?? w*0.01),
-              child: Image.asset(img,scale: 1,),
+              child: img==null ? null : Image.asset(img!,scale: 1,),
             ),
             hintText: hintText,
             fillColor: MyColor.txtFiled_clr,
