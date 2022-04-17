@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../constant/Topbar.dart';
 import '../constant/mycolor.dart';
 
 class NewDeveloper extends StatefulWidget {
@@ -14,6 +15,9 @@ class _NewDeveloperState extends State<NewDeveloper> {
   final DevoloperName = TextEditingController();
   final Amount = TextEditingController();
   final Role = TextEditingController();
+  final List<String> roll = [
+    '1', '2', '3', '4', '5', '6'
+  ];
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
@@ -37,61 +41,29 @@ class _NewDeveloperState extends State<NewDeveloper> {
         padding:  EdgeInsets.symmetric(horizontal: 30.0,vertical: 20),
         child: Column(
           children: [
-            TextField(
+            Text_Filed(
+              hintText: 'Developer Name',
+              img: 'images/text_file.png',
+              Ipadding: w * 0.075,
+              Tpadding: w * 0.018,
               controller: DevoloperName,
-              decoration: InputDecoration(
-                  prefixIcon: Padding(
-                    padding: EdgeInsets.only(left: w * 0.02),
-                    child: Image.asset(
-                      "images/files.png",
-                      scale: 30,
-                    ),
-                  ),
-                  hintText: 'Email Id',
-                  hintStyle: TextStyle(
-                      color: MyColor.hintColor,
-                      fontFamily: 'poppins_regular'),
-                  contentPadding: EdgeInsets.only(left: w * 0.0275),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(h))),
             ),
+
             SizedBox(height: 10,),
-            TextField(
+            Text_Filed(
+              hintText: 'Amount',
+              img: 'images/rupee.png',
+              Ipadding: w * 0.075,
+              Tpadding: w * 0.025,
               controller: Amount,
-              decoration: InputDecoration(
-                  prefixIcon: Padding(
-                    padding: EdgeInsets.only(left: w * 0.02),
-                    child: Image.asset(
-                      "images/rupee.png",
-                      scale: 1,
-                    ),
-                  ),
-                  hintText:'Amount',
-                  hintStyle: TextStyle(
-                      color: MyColor.hintColor,
-                      fontFamily: 'poppins_regular'),
-                  contentPadding: EdgeInsets.only(left: w * 0.0275),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(h))),
             ),
+
             SizedBox(height: 10,),
-            TextField(
+            Text_Filed(
+              hintText: 'Amount',
+              Ipadding: w * 0.075,
+              Tpadding: w * 0.025,
               controller: DevoloperName,
-              decoration: InputDecoration(
-                  prefixIcon: Padding(
-                    padding: EdgeInsets.only(left: w * 0.02),
-                    child: Image.asset(
-                      "images/mail.png",
-                      scale: 1,
-                    ),
-                  ),
-                  hintText: 'Email Id',
-                  hintStyle: TextStyle(
-                      color: MyColor.hintColor,
-                      fontFamily: 'poppins_regular'),
-                  contentPadding: EdgeInsets.only(left: w * 0.0275),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(h))),
             ),
           ],
         ),
