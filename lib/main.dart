@@ -2,6 +2,8 @@ import 'package:devloper/screen/New%20Devoloper.dart';
 import 'package:devloper/screen/crash_investigation.dart';
 import 'package:devloper/screen/Crashinvestigation.dart';
 import 'package:devloper/screen/newscreen.dart';
+import 'package:devloper/screen/paymant_details.dart';
+import 'package:devloper/screen/payment.dart';
 import 'package:devloper/screen/tabscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/',
+      initialRoute: '/paymentdetail',
       routes: {
         '/': (context) => const LoginScreen(),
         '/tab': (context) => const TabScreen(),
@@ -36,6 +38,8 @@ class MyApp extends StatelessWidget {
         '/new': (context) => const NewScreen(),
         '/Crashinvestigation': (context) => const Crashinvestigation(),
         '/newdevoloper': (context) => const NewDeveloper(),
+        '/paymentdetail': (context) => const PaymentDetails(),
+        '/payment': (context) => const PaymentScreen(),
 
       },
     );

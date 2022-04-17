@@ -20,6 +20,7 @@ class MyColor{
   static const Color hintColor = Color(0xFF434343);
   static const Color search_hintColor = Color(0xFF8D8D8D);
   static const Color gray = Color(0xFF707070);
+  static const Color text_light = Color(0xFFA8A2A2);
   static const Color txtFiled_clr = Color(0xFFE7E7E7);
   static const Color bottom_bg_color = Color(0xFFEFF6EF);
 
@@ -563,6 +564,85 @@ class linearPercentIndicatir extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class DeveloperPaymentDetail extends StatelessWidget {
+   DeveloperPaymentDetail({required this.progress, required this.percentage, this.indicator_clr, required this.percent, required this.Name, required this.Role}) ;
+
+final String progress;
+final String percentage;
+final Color? indicator_clr;
+final double percent;
+final String Name;
+final String Role;
+
+  @override
+  Widget build(BuildContext context) {
+    double h = MediaQuery.of(context).size.height;
+    double w = MediaQuery.of(context).size.width;
+    bool H = h < 700;
+    return Card(
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(h*0.012)
+      ),
+      elevation: 5,
+      child: Container(
+        height: h*0.21,
+        width: w*0.90,
+        padding: EdgeInsets.symmetric(horizontal: w*0.0275,vertical: h*0.01),
+        decoration: BoxDecoration(
+          color: MyColor.White,
+          borderRadius: BorderRadius.circular(h*0.012),
+
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ImageIcon(AssetImage('images/edit.png'),size: h*0.03),
+              ],
+            ),
+            Row(
+              children: [
+                ImageIcon(AssetImage('images/use.png'),color: MyColor.text_light,size: h*0.03),
+                Text('Developer Name',style: TextStyle(color: MyColor.text_light,fontSize: h*0.018,fontFamily: 'poppins_regular'),),
+              ],
+            ),
+            Text(Name,style: TextStyle(fontSize: h*0.024,fontFamily: 'poppins_medium',color: MyColor.txtColor),),
+            Text(Role,style: TextStyle(fontSize: h*0.016,fontFamily: 'poppins_medium',color: MyColor.gray),),
+            SizedBox(height: h*0.01,),
+            Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(progress,style: TextStyle(fontSize: h*0.018,fontFamily: 'poppins_medium',color: MyColor.text_light),),
+                    Text(percentage,style: TextStyle(fontSize: h*0.018,fontFamily: 'poppins_medium',color: MyColor.text_light),),
+
+                  ],
+                ),
+                Padding(
+                  padding:  EdgeInsets.only(top: h*0.01),
+                  child: LinearPercentIndicator(
+                    width: w*0.840,
+                    animation: true,
+                    lineHeight: h*0.005,
+                    padding: EdgeInsets.symmetric(),
+                    animationDuration: 2500,
+                    percent: percent,
+                    barRadius: Radius.circular(h),
+                    progressColor: indicator_clr??Colors.green,
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
