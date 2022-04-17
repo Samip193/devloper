@@ -32,9 +32,17 @@ class MyStyle{
 
 }
 
-class OverallDetails extends StatelessWidget {
-  const OverallDetails({Key? key}) : super(key: key);
+class OverallDetails extends StatefulWidget {
+  var length;
 
+
+  OverallDetails(this.length,  {Key? key}) : super(key: key);
+
+  @override
+  State<OverallDetails> createState() => _OverallDetailsState();
+}
+
+class _OverallDetailsState extends State<OverallDetails> {
   @override
   Widget build(BuildContext context) {
     double h=MediaQuery.of(context).size.height;
@@ -75,7 +83,7 @@ class OverallDetails extends StatelessWidget {
                         padding:  EdgeInsets.only(bottom: h*0.01),
                         child: Column(
                           children: [
-                            Text('10',style: TextStyle(fontSize: h*0.07,color: MyColor.txtColor,fontFamily: 'poppins_semi_bold')),
+                            Text(widget.length.toString(),style: TextStyle(fontSize: h*0.07,color: MyColor.txtColor,fontFamily: 'poppins_semi_bold')),
                             Text('Projects',style: TextStyle(fontSize: h*0.02,color: MyColor.txtColor,fontFamily: 'poppins_regular')),
                           ],
                         ),
@@ -118,13 +126,12 @@ class OverallDetails extends StatelessWidget {
                     Center(
                       child: Column(
                         children: [
-                          Text('10',style: TextStyle(fontSize: h*0.07,color: MyColor.txtColor,fontFamily: 'poppins_semi_bold')),
+                          Text(widget.length.toString(),style: TextStyle(fontSize: h*0.07,color: MyColor.txtColor,fontFamily: 'poppins_semi_bold')),
                           Text('Clients',style: TextStyle(fontSize: h*0.02,color: MyColor.txtColor,fontFamily: 'poppins_regular')),
                         ],
                       ),
                     ),
                   ),
-
                   Container(
                     width:w*0.4,
                     decoration: BoxDecoration(
@@ -340,92 +347,102 @@ class ProfitCard extends StatelessWidget {
 
 
 
-class Indecetor extends StatelessWidget {
-  const Indecetor({Key? key}) : super(key: key);
+class Indecetor extends StatefulWidget {
+  var data;
 
+  int index;
+
+  Indecetor(this.data, int this.index, {Key? key}) : super(key: key);
+
+  @override
+  State<Indecetor> createState() => _IndecetorState();
+}
+
+class _IndecetorState extends State<Indecetor> {
   @override
   Widget build(BuildContext context) {
     double h=MediaQuery.of(context).size.height;
     double w=MediaQuery.of(context).size.width;
     bool H =h<700;
-    return Container(
-      height: h*0.29,
-      width: w*0.90,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(h*0.015),
-        boxShadow: [
-          BoxShadow(
-            color: MyColor.shedowColor,
-            spreadRadius: 2,
-            blurRadius: 7,
-            offset: const Offset(2, 5), // changes position of shadow
-          ),
-        ],
-        // border: Border.all(color: Colors.blueAccent)
-      ),
-      child: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: w*0.0375,vertical: h*0.015   ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Project ID : 161654651',style: TextStyle(fontSize: h*0.017,color: MyColor.txtColor,fontFamily: 'poppins_regular'),),
-                ConstrainedBox(
-                  constraints: BoxConstraints(
-                      maxWidth: w*0.2
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      SizedBox(
-                          height:20,
-                          width: 20,
-                          child: Image.asset('images/android.png',scale: 1,)),
-                      SizedBox(
-                          height:20,
-                          width: 20,
-                          child: Image.asset('images/apple.png',scale: 1,)),
-                      SizedBox( height:20,
-                          width: 20,
-                          child: Image.asset('images/network.png',scale: 1,)),
-
-                    ],
-                  ),
-                )
-              ],
+    return Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Container(
+        height: h*0.29,
+        width: w*0.90,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(h*0.015),
+          boxShadow: [
+            BoxShadow(
+              color: MyColor.shedowColor,
+              spreadRadius: 2,
+              blurRadius: 7,
+              offset: const Offset(2, 5), // changes position of shadow
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Veggi 365',style: TextStyle(fontSize: h*0.028,color: MyColor.txtColor,fontFamily: 'poppins_medium')),
-                ConstrainedBox(
-                    constraints: BoxConstraints(
-                        maxWidth: w*0.22
-                    ),
-                    child:Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: h*0.04,
-                          width: w*0.004,
-                          color: MyColor.gray,
-                        ),
-                        Padding(
-                          padding:  EdgeInsets.only(right: w*0.01),
-                          child: Text('1.5 L',style: TextStyle(fontSize: h*0.028,color: MyColor.txtColor,fontFamily: 'poppins_medium')),
-                        )
-                      ],
-                    )
-                )
-              ],
-            ),
-            linearPercentIndicatir(progress: 'Payment Progress',percentage: '80%',percent: 0.8),
-            linearPercentIndicatir(progress: 'Current profit Progress: -70 K',percentage: '-40%',percent: 0.4,indicator_clr: MyColor.red),
-            linearPercentIndicatir(progress: 'Total profit: 4.5 K',percentage: '50%',percent: 0.5),
           ],
+          // border: Border.all(color: Colors.blueAccent)
+        ),
+        child: Padding(
+          padding:  EdgeInsets.symmetric(horizontal: w*0.0375,vertical: h*0.015   ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Project ID : ${widget.data[widget.index]['projectid']}',style: TextStyle(fontSize: h*0.017,color: MyColor.txtColor,fontFamily: 'poppins_regular'),),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                        maxWidth: w*0.2
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        SizedBox(
+                            height:20,
+                            width: 20,child:widget.data[widget.index]['forandroid'] == true ? Image.asset('images/android.png',scale: 1,):SizedBox()),
+                        SizedBox(
+                            height:20,
+                            width: 20,child:widget.data[widget.index]['forapple'] == true ? Image.asset('images/apple.png',scale: 1,):SizedBox()),
+                        SizedBox(
+                            height:20,
+                            width: 20,child:widget.data[widget.index]['forweb'] == true ? Image.asset('images/network.png',scale: 1,):SizedBox()),
+
+                      ],
+                    ),
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(widget.data[widget.index]['projectname'],style: TextStyle(fontSize: h*0.028,color: MyColor.txtColor,fontFamily: 'poppins_medium')),
+                  ConstrainedBox(
+                      constraints: BoxConstraints(
+                          maxWidth: w*0.22
+                      ),
+                      child:Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: h*0.04,
+                            width: w*0.004,
+                            color: MyColor.gray,
+                          ),
+                          Padding(
+                            padding:  EdgeInsets.only(right: w*0.01),
+                            child: Text(widget.data[widget.index]['projectamount'],style: TextStyle(fontSize: h*0.028,color: MyColor.txtColor,fontFamily: 'poppins_medium')),
+                          )
+                        ],
+                      )
+                  )
+                ],
+              ),
+              linearPercentIndicatir(progress: 'Payment Progress',percentage: '80%',percent: 0.8),
+              linearPercentIndicatir(progress: 'Current profit Progress: -70 K',percentage: '-40%',percent: 0.4,indicator_clr: MyColor.red),
+              linearPercentIndicatir(progress: 'Total profit: 4.5 K',percentage: '50%',percent: 0.5),
+            ],
+          ),
         ),
       ),
     );
@@ -434,7 +451,12 @@ class Indecetor extends StatelessWidget {
 
 
 class ProgressIndecetor extends StatefulWidget {
-  const ProgressIndecetor({Key? key}) : super(key: key);
+  var data;
+
+  var index;
+
+
+   ProgressIndecetor(this.data,  this.index,  {Key? key}) : super(key: key);
 
   @override
   State<ProgressIndecetor> createState() => _ProgressIndecetorState();
@@ -447,6 +469,7 @@ class _ProgressIndecetorState extends State<ProgressIndecetor> {
     double w=MediaQuery.of(context).size.width;
     bool H =h<700;
     return Container(
+      margin: EdgeInsets.only(top: 10,bottom: 10),
       height: h*0.24,
       width: w*0.90,
       decoration: BoxDecoration(
@@ -470,7 +493,7 @@ class _ProgressIndecetorState extends State<ProgressIndecetor> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Project ID : 161654651',style: TextStyle(fontSize: h*0.017,color: MyColor.txtColor,fontFamily: 'poppins_regular'),),
+                Text('Project ID : ${widget.data[widget.index]['projectid']}',style: TextStyle(fontSize: h*0.017,color: MyColor.txtColor,fontFamily: 'poppins_regular'),),
                 ConstrainedBox(
                   constraints: BoxConstraints(
                       maxWidth: w*0.2
@@ -480,13 +503,13 @@ class _ProgressIndecetorState extends State<ProgressIndecetor> {
                     children: [
                       SizedBox(
                           height:20,
-                          width: 20,child: Image.asset('images/android.png',scale: 1,)),
+                          width: 20,child:widget.data[widget.index]['forandroid'] == true ? Image.asset('images/android.png',scale: 1,):SizedBox()),
                       SizedBox(
                           height:20,
-                          width: 20,child: Image.asset('images/apple.png',scale: 1,)),
+                          width: 20,child:widget.data[widget.index]['forapple'] == true ? Image.asset('images/apple.png',scale: 1,):SizedBox()),
                       SizedBox(
                           height:20,
-                          width: 20,child: Image.asset('images/network.png',scale: 1,)),
+                          width: 20,child:widget.data[widget.index]['forweb'] == true ? Image.asset('images/network.png',scale: 1,):SizedBox()),
 
                     ],
                   ),
@@ -496,7 +519,7 @@ class _ProgressIndecetorState extends State<ProgressIndecetor> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Veggi 365',style: TextStyle(fontSize: h*0.028,color: MyColor.txtColor,fontFamily: 'poppins_medium')),
+                Text(widget.data[widget.index]['projectname'],style: TextStyle(fontSize: h*0.028,color: MyColor.txtColor,fontFamily: 'poppins_medium')),
                 ConstrainedBox(
                     constraints: BoxConstraints(
                         maxWidth: w*0.22
@@ -511,7 +534,7 @@ class _ProgressIndecetorState extends State<ProgressIndecetor> {
                         ),
                         Padding(
                           padding:  EdgeInsets.only(right: w*0.01),
-                          child: Text('1.5 L',style: TextStyle(fontSize: h*0.028,color: MyColor.txtColor,fontFamily: 'poppins_medium')),
+                          child: Text(widget.data[widget.index]['projectamount'],style: TextStyle(fontSize: h*0.028,color: MyColor.txtColor,fontFamily: 'poppins_medium')),
                         )
                       ],
                     )

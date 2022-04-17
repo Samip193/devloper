@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,49 +14,53 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
-
+  var data;
   bool _enable = false;
   final GlobalKey<ScaffoldState> _scaffoldState = GlobalKey<ScaffoldState>();
+
   void tmpFunction() {
     _scaffoldState.currentState?.openDrawer();
     print('Function Called.....');
   }
 
-
   @override
   Widget build(BuildContext context) {
-    double h=MediaQuery.of(context).size.height;
-    double w=MediaQuery.of(context).size.width;
-    bool H =h<700;
+    double h = MediaQuery.of(context).size.height;
+    double w = MediaQuery.of(context).size.width;
+    bool H = h < 700;
     return Scaffold(
       key: _scaffoldState,
       drawer: Drawer(),
-      body: SingleChildScrollView (
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            TopBar(title: 'TST Admin Panel',onTouch: tmpFunction,showMenu: true),
+            TopBar(
+                title: 'TST Admin Panel', onTouch: tmpFunction, showMenu: true),
             Stack(
               clipBehavior: Clip.none,
               children: [
                 Container(
-                  height: h*0.14,
+                  height: h * 0.14,
                   width: w,
                   color: MyColor.app_bar_Color,
-
                 ),
                 Positioned(
-                  right: w*0.07,
+                  right: w * 0.07,
                   child: Container(
-                    height: h*0.08,
-                    width: w*0.20,
+                    height: h * 0.08,
+                    width: w * 0.20,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Text(_enable?'Completed':'Open',style: TextStyle(fontSize: h*0.016,color: MyColor.White,fontFamily: 'poppins_regular')),
+                        Text(_enable ? 'Completed' : 'Open',
+                            style: TextStyle(
+                                fontSize: h * 0.016,
+                                color: MyColor.White,
+                                fontFamily: 'poppins_regular')),
                         CustomSwitch(
                           value: _enable,
-                          onChanged: (bool val){
+                          onChanged: (bool val) {
                             setState(() {
                               _enable = val;
                             });
@@ -66,24 +71,33 @@ class _AccountScreenState extends State<AccountScreen> {
                   ),
                 ),
                 MAin_Account(balance: '80 K'),
-                My_Account(balance: _enable ? '-4.5 K' : '4.5 K',clr: _enable ? MyColor.colorPink : MyColor.colorCyan,)
+                My_Account(
+                  balance: _enable ? '-4.5 K' : '4.5 K',
+                  clr: _enable ? MyColor.colorPink : MyColor.colorCyan,
+                )
               ],
             ),
-            SizedBox(height: h*0.12,),
+            SizedBox(
+              height: h * 0.12,
+            ),
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: w*0.035),
+              padding: EdgeInsets.symmetric(horizontal: w * 0.035),
               child: Row(
                 children: [
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Navigator.pushNamed(context, '/new');
                     },
                     child: Container(
-                      width: w*0.16,
+                      width: w * 0.16,
                       child: Row(
                         children: [
-                          Icon(Icons.add,color: MyColor.txtColor),
-                          Text('New',style: TextStyle(fontSize: h*0.018,color: MyColor.txtColor,fontFamily: 'poppins_regular')),
+                          Icon(Icons.add, color: MyColor.txtColor),
+                          Text('New',
+                              style: TextStyle(
+                                  fontSize: h * 0.018,
+                                  color: MyColor.txtColor,
+                                  fontFamily: 'poppins_regular')),
                         ],
                       ),
                     ),
@@ -93,18 +107,37 @@ class _AccountScreenState extends State<AccountScreen> {
             ),
             SearchBar(),
             GestureDetector(
-              onTap: (){
-                _enable ? Navigator.pushNamed(context, '/new'):Navigator.pushNamed(context, '/cration');
-              },
-              child: Padding(
-                padding:  EdgeInsets.only(top:h*0.01),
-                child:_enable ? ProfitCard()  : Indecetor(),
-              ),
-            )
-
-            ],
-          ),
+                onTap: () {
+                  _enable
+                      ? Navigator.pushNamed(context, '/new')
+                      : Navigator.pushNamed(context, '/cration');
+                },
+                child: Padding(
+                    padding: EdgeInsets.only(top: h * 0.01),
+                    child: _enable
+                        ? ProfitCard()
+                        : StreamBuilder<QuerySnapshot>(
+                            stream: FirebaseFirestore.instance
+                                .collection('projectdata')
+                                .snapshots(),
+                            builder: (BuildContext context,
+                                AsyncSnapshot<QuerySnapshot> snapshot) {
+                              if (!snapshot.hasData) return Text('Loading...');
+                              data = snapshot.data!.docs;
+                              return SizedBox(
+                                height: MediaQuery.of(context).size.height/2.5,
+                                child: ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    itemCount: data.length,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return Indecetor(data,index);
+                                    }),
+                              );
+                            })))
+          ],
+        ),
       ),
-      );
+    );
   }
 }

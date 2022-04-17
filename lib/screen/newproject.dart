@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -275,9 +277,10 @@ class _NewScreenState extends State<NewScreen> {
                                 .collection('projectdata')
                                 .doc()
                                 .set({
+                              'projectid': Random().nextInt(999999).toString().padLeft(6, '0'),
                               "projectname":projectname.text,
-                              "Clientname":clientname.text,
-                              "Projectamount":projectamount.text,
+                              "clientname":clientname.text,
+                              "projectamount":projectamount.text,
                               "projectduration":projectduration.text,
                               "forandroid":android,
                               "forapple":apple,
