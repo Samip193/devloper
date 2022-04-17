@@ -54,7 +54,7 @@ class _TopBarState extends State<TopBar> {
             ),
             Padding(
               padding:  EdgeInsets.only(right: w*0.2),
-              child: Text(widget.title!,style: TextStyle(fontSize: h*0.03,color: MyColor.White,fontFamily: 'poppins_medium'),),
+              child: Text(widget.title!,style: TextStyle(fontSize: h*0.027,color: MyColor.White,fontFamily: 'poppins_medium'),),
             ),
             Icon(Icons.account_circle,color: MyColor.White,size: h*0.05,),
 

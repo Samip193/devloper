@@ -2,19 +2,22 @@ import 'package:devloper/screen/New%20Devoloper.dart';
 import 'package:devloper/screen/crash_investigation.dart';
 import 'package:devloper/screen/Crashinvestigation.dart';
 import 'package:devloper/screen/newscreen.dart';
+import 'package:devloper/screen/newproject.dart';
 import 'package:devloper/screen/paymant_details.dart';
 import 'package:devloper/screen/payment.dart';
 import 'package:devloper/screen/tabscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'TabScreen/Project.dart';
 import 'TabScreen/home.dart';
 import 'screen/login.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -26,10 +29,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/paymentdetail',
+      initialRoute: '/',
       routes: {
         '/': (context) => const LoginScreen(),
         '/tab': (context) => const TabScreen(),
@@ -38,6 +40,8 @@ class MyApp extends StatelessWidget {
         '/new': (context) => const NewScreen(),
         '/Crashinvestigation': (context) => const Crashinvestigation(),
         '/newdevoloper': (context) => const NewDeveloper(),
+        '/adddevoloper': (context) => const NewDeveloper(),
+        '/allproject': (context) => const ProjectScreen(),
         '/paymentdetail': (context) => const PaymentDetails(),
         '/payment': (context) => const PaymentScreen(),
 
@@ -45,5 +49,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
