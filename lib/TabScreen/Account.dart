@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../constant/Topbar.dart';
 import '../constant/account_constant.dart';
 import '../constant/mycolor.dart';
+import '../screen/crash_investigation.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({Key? key}) : super(key: key);
@@ -109,8 +110,12 @@ class _AccountScreenState extends State<AccountScreen> {
             GestureDetector(
                 onTap: () {
                   _enable
-                      ? Navigator.pushNamed(context, '/new')
-                      : Navigator.pushNamed(context, '/cration');
+                      ? Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CrashInvestigation()),)
+                      : Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CrashInvestigation()));
                 },
                 child: Padding(
                     padding: EdgeInsets.only(top: h * 0.01),

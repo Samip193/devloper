@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../constant/Topbar.dart';
@@ -30,13 +31,14 @@ class _TeamScreenState extends State<TeamScreen> {
           TopBar(
               title: 'About Developers', onTouch: tmpFunction, showMenu: true),
           SizedBox(
-            height: MediaQuery.of(context).size.height/1.6,
+            height: MediaQuery.of(context).size.height/1.27,
             child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance.collection('devoloper').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (!snapshot.hasData) return  Text('Loading...');
                   data = snapshot.data!.docs;
                   return  ListView.builder(
+                    padding: EdgeInsets.zero,
                     itemCount: data.length,
                     itemBuilder: (BuildContext context,int index){
                       return Container(
