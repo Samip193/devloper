@@ -301,7 +301,7 @@ class _NewScreenState extends State<NewScreen> {
                                     color: MyColor.White,
                                     fontFamily: 'poppins_regular'),
                               ),
-                              ImageIcon(AssetImage('images/check.png'),color: MyColor.White,)
+                              ImageIcon(AssetImage('images/check.png'),color: MyColor.White,size: h*0.03,)
                             ],
                           ),
                         ),
