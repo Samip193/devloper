@@ -15,8 +15,15 @@ class _NewDeveloperState extends State<NewDeveloper> {
   final DevoloperName = TextEditingController();
   final Amount = TextEditingController();
   final Role = TextEditingController();
-  final List<String> roll = [
-    '1', '2', '3', '4', '5', '6'
+  String? dropdownvalue;
+
+  // List of items in our dropdown menu
+  var items = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
   ];
   @override
   Widget build(BuildContext context) {
@@ -59,11 +66,43 @@ class _NewDeveloperState extends State<NewDeveloper> {
             ),
 
             SizedBox(height: 10,),
-            Text_Filed(
-              hintText: 'Amount',
-              Ipadding: w * 0.075,
-              Tpadding: w * 0.025,
-              controller: DevoloperName,
+            Container(
+              padding: EdgeInsets.only(left: w*0.09,right: w*0.05),
+              width: w*0.9,
+              decoration: BoxDecoration(
+                color: MyColor.txtFiled_clr,
+                borderRadius: BorderRadius.circular(h),
+                border: Border.all(color: MyColor.White,width: w*0.012),
+
+              ),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton(
+                  elevation: 2,
+                  hint: Text('Select Role'),
+                  
+
+                  // Initial Value
+                  value: dropdownvalue,
+
+                  // Down Arrow Icon
+                  icon:  ImageIcon(AssetImage('images/down.png'),size: h*0.02),
+
+                  // Array list of items
+                  items: items.map((String items) {
+                    return DropdownMenuItem(
+                      value: items,
+                      child: Text(items),
+                    );
+                  }).toList(),
+                  // After selecting the desired option,it will
+                  // change button value to selected value
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      dropdownvalue = newValue!;
+                    });
+                  },
+                ),
+              ),
             ),
           ],
         ),

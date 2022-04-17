@@ -152,11 +152,11 @@ class Text_Filed extends StatelessWidget {
             hintStyle: TextStyle(color: MyColor.hintColor,fontFamily: 'poppins_regular'),
             contentPadding:  EdgeInsets.only(top: h*0.05),
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: MyColor.White, width: 5.0),
+                borderSide: BorderSide(color: MyColor.White, width: w*0.012),
                 borderRadius: BorderRadius.circular(h)
             ),
             enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: MyColor.White, width: 5.0),
+                borderSide: BorderSide(color: MyColor.White, width: w*0.012),
                 borderRadius: BorderRadius.circular(h)
             ),
             border: OutlineInputBorder(
