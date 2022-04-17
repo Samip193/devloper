@@ -38,10 +38,7 @@ class _NewDeveloperState extends State<NewDeveloper> {
         ),
         backgroundColor: MyColor.app_bar_Color,
         actions: [
-          Padding(
-            padding:  EdgeInsets.all(8.0),
-            child: IconButton(onPressed: (){}, icon:Icon(Icons.check,size: 30,)),
-          ),
+          IconButton(onPressed: (){}, icon:Icon(Icons.check,size: 30,)),
         ],
       ),
       body: Padding(
