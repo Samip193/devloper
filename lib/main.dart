@@ -1,7 +1,6 @@
 import 'package:devloper/screen/New%20Devoloper.dart';
 import 'package:devloper/screen/crash_investigation.dart';
 import 'package:devloper/screen/Crashinvestigation.dart';
-import 'package:devloper/screen/newscreen.dart';
 import 'package:devloper/screen/newproject.dart';
 import 'package:devloper/screen/paymant_details.dart';
 import 'package:devloper/screen/payment.dart';
@@ -39,7 +38,6 @@ class MyApp extends StatelessWidget {
         '/cration': (context) => const CrashInvestigation(),
         '/new': (context) => const NewScreen(),
         '/Crashinvestigation': (context) => const Crashinvestigation(),
-        '/newdevoloper': (context) => const NewDeveloper(),
         '/adddevoloper': (context) => const NewDeveloper(),
         '/allproject': (context) => const ProjectScreen(),
         '/paymentdetail': (context) => const PaymentDetails(),
