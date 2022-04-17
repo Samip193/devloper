@@ -291,7 +291,7 @@ class _NewScreenState extends State<NewScreen> {
                         minWidth: w * 0.72,
                         height: h * 0.07,
                         child: ConstrainedBox(
-                          constraints: BoxConstraints.tightFor(width: w * 0.3),
+                          constraints: BoxConstraints.tightFor(width: w * 0.35),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
@@ -301,11 +301,7 @@ class _NewScreenState extends State<NewScreen> {
                                     color: MyColor.White,
                                     fontFamily: 'poppins_regular'),
                               ),
-                              Icon(
-                                Icons.login_sharp,
-                                size: h * 0.025,
-                                color: MyColor.White,
-                              )
+                              ImageIcon(AssetImage('images/check.png'),color: MyColor.White,)
                             ],
                           ),
                         ),
