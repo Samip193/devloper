@@ -577,7 +577,7 @@ class linearPercentIndicatir extends StatelessWidget {
         Padding(
           padding:  EdgeInsets.only(top: h*0.01),
           child: LinearPercentIndicator(
-            width: w*0.820,
+            //width: w*0.820,
             animation: true,
             lineHeight: h*0.005,
             padding: EdgeInsets.symmetric(),
