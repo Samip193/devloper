@@ -60,8 +60,10 @@ class _HomeScreenState extends State<HomeScreen> {
               height: h * 0.22,
             ),
             SearchBar(),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 3.3,
+            ConstrainedBox(
+              constraints: BoxConstraints.tightFor(
+                height: h*0.3,
+              ),
               child: StreamBuilder<QuerySnapshot>(
                   stream: FirebaseFirestore.instance
                       .collection('projectdata')
@@ -75,7 +77,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: 1,
                       itemBuilder: (BuildContext context, int index) {
-                        return ProgressIndecetor(data, 0);
+                        return Padding(
+                          padding:  EdgeInsets.symmetric(horizontal: w*0.0475),
+                          child: ProgressIndecetor(data, 0),
+                        );
                       },
                     );
                   }),

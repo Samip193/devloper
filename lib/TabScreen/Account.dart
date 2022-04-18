@@ -113,29 +113,36 @@ class _AccountScreenState extends State<AccountScreen> {
                       : Navigator.pushNamed(context, '/cration');
                 },
                 child: Padding(
-                    padding: EdgeInsets.only(top: h * 0.01),
+                    padding: EdgeInsets.only(top: h * 0.005),
                     child: _enable
-                        ? ProfitCard()
-                        : StreamBuilder<QuerySnapshot>(
-                            stream: FirebaseFirestore.instance
-                                .collection('projectdata')
-                                .snapshots(),
-                            builder: (BuildContext context,
-                                AsyncSnapshot<QuerySnapshot> snapshot) {
-                              if (!snapshot.hasData) return Text('Loading...');
-                              data = snapshot.data!.docs;
-                              return SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height / 2.5,
-                                child: ListView.builder(
+                        ? Padding(
+                          padding:  EdgeInsets.only(top: h * 0.005),
+                          child: ProfitCard(),
+                        )
+                        : ConstrainedBox(
+                      constraints: BoxConstraints.tightFor(
+                        height: h*0.4,
+                      ),
+                          child: StreamBuilder<QuerySnapshot>(
+                              stream: FirebaseFirestore.instance
+                                  .collection('projectdata')
+                                  .snapshots(),
+                              builder: (BuildContext context,
+                                  AsyncSnapshot<QuerySnapshot> snapshot) {
+                                if (!snapshot.hasData) return Text('Loading...');
+                                data = snapshot.data!.docs;
+                                return ListView.builder(
                                     padding: EdgeInsets.zero,
                                     itemCount: data.length,
                                     itemBuilder:
                                         (BuildContext context, int index) {
-                                      return Indecetor(data, index);
-                                    }),
-                              );
-                            })))
+                                      return Padding(
+                                        padding:  EdgeInsets.only(left: w*0.0275,right: w*0.0275,bottom: h*0.005),
+                                        child: Indecetor(data, index),
+                                      );
+                                    });
+                              }),
+                        ))),
           ],
         ),
       ),
