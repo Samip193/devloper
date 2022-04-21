@@ -40,9 +40,6 @@ class MyApp extends StatelessWidget {
         '/Crashinvestigation': (context) => const Crashinvestigation(),
         '/adddevoloper': (context) => const NewDeveloper(),
         '/allproject': (context) => const ProjectScreen(),
-        '/payment': (context) => const PaymentScreen(),
-        '/history': (context) => const PaymentHistory(),
-
       },
     );
   }

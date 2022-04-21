@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:devloper/screen/payment.dart';
+import 'package:devloper/screen/payment_history.dart';
 import 'package:flutter/material.dart';
 import '../constant/mycolor.dart';
 
@@ -13,6 +16,7 @@ class PaymentDetails extends StatefulWidget {
 }
 
 class _PaymentDetailsState extends State<PaymentDetails> {
+  var data1;
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
@@ -30,7 +34,9 @@ class _PaymentDetailsState extends State<PaymentDetails> {
       ),
       floatingActionButton:  GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, '/payment');
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PaymentScreen(widget.data,widget.index)));
         },
         child: Container(
           height: h*0.047,
@@ -105,15 +111,35 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                       ],
                     ),
                   ),
-                  TransactionDetail(
-                    transaction: 'ASKcdhb3221',
-                    transferAmount: '10 K',
-                    transferVia: 'Paytm UPI',
-                    givenBy: 'Parth makawana',
-                    date: '02/05/2021',
-                    time:'21:45' ,
-                  ),
-                  SizedBox(height: h*0.02,),
+                Padding(
+                  padding:  EdgeInsets.only(bottom: 8.0),
+                  child: StreamBuilder<QuerySnapshot>(
+                      stream: FirebaseFirestore.instance.collection(
+                          'paymenthistory').where("devolopername",isEqualTo: widget.data[widget.index]['devoloperName']).snapshots(),
+                      builder: (BuildContext context,
+                          AsyncSnapshot<QuerySnapshot> snapshot) {
+                        if (!snapshot.hasData) return Text('Loading...');
+                        data1 = snapshot.data!.docs;
+                        return SizedBox(
+                          height: MediaQuery.of(context).size.height/1.8,
+                          child: ListView.builder(
+                              itemCount: data1.length,
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: EdgeInsets.only(top: h * 0.02),
+                                  child: TransactionDetail(
+                                    transaction: data1[index]["transactionnumber"],
+                                    transferAmount: data1[index]["Amount"],
+                                    transferVia: 'Paytm UPI',
+                                    givenBy: 'Parth makawana',
+                                    date: '02/05/2021',
+                                    time: '21:45',
+                                  ),
+                                );
+                              }),
+                        );
+                      }),
+                ),
                 ],
               ),
             ),
